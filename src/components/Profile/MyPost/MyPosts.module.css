@@ -1,0 +1,29 @@
+.postWrapper {
+  width: 50%;
+  background-color: #363b42;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.inputWrapper {
+  margin-right: 20px;
+}
+
+.formWrapper {
+  margin: 20px 0;
+}
+
+.postSendWrapper {
+  display: flex;
+}
+
+.btn {
+  margin: 0 30px;
+  background-color: #2d88ff;
+  border-radius: 10px;
+  border: 0;
+  color: #e3e5ec;
+  height: 44px;
+  width: 90px;
+}

@@ -1,0 +1,32 @@
+
+.paginationWrapper {
+  background-color: #2a2c30;
+}
+
+
+.selectedPage,
+.selectedPageActive {
+    cursor: pointer;
+    margin: 5px;
+}
+
+.selectedPage {
+   color: #e3e5ec;
+}
+
+.selectedPageActive {
+    font-weight: bold;
+    color: gold;
+}
+
+.btnPortion {
+  margin: 5px;
+  background-color: #2d88ff;
+  border-radius: 10px;
+  border: 0;
+  color: #e3e5ec;
+  height: 25px;
+  width: 40px;
+  cursor: pointer;
+  text-align: center;
+}

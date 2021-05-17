@@ -1,24 +1,43 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { Route, Switch} from 'react-router-dom';
 
-function App() {
+import HeaderContainer from './components/Header/HeaderContainer';
+import Navbar from './components/Navbar/Navbar';
+import ProfileContainer from './components/Profile/ProfileContainer';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
+import UsersContainer from './components/Users/UsersContainer';
+import CreateNewAccountContainer from './components/Authentication/CreateNewAccount/CreateNewAccountContainer';
+import SingInContainer from './components/Authentication/SingIn/SingInContainer';
+import Login from './components/Login/Login';
+import MyPage from './components/Profile/MyPage/MyPage';
+import { withSuspense } from './hoc/withSuspense';
+
+const News = React.lazy(() => import('./components/News/News'));
+const Music = React.lazy(() => import('./components/Music/Music'));
+const Settings = React.lazy(() => import('./components/Settings/Settings'));
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className='app-wrapper'>
+        <HeaderContainer />
+        <Navbar />
+        <div className="app-wrapper-content"> 
+          <Switch>
+            <Route path="/singIn" render={ () => <SingInContainer /> }/>
+            <Route path="/createAccount" render={ () => <CreateNewAccountContainer /> }/>
+            <Route exact path="/profile"  render={ () => <MyPage />}/>
+            <Route exact path="/profile/:userId?"  render={ () => <ProfileContainer />}/>
+            <Route path="/dialogs" render={ () => <DialogsContainer />}/>
+            <Route path="/users" render={ () => <UsersContainer /> }/>
+            <Route path="/news" render={withSuspense(News)}/>
+
+            <Route path="/music" render={withSuspense(Music)}/>
+            <Route path="/settings" render={withSuspense(Settings)}/>
+            <Route path="/login" component={Login}/>
+          </Switch>
+        </div>
+      </div>
   );
 }
 

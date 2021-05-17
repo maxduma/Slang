@@ -1,0 +1,32 @@
+.wrapper {
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 30px;
+  color: #e3e5ec;
+}
+
+.btnWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.btnLogin {
+  padding-top: 5px;
+  background-color: #2d88ff;
+  border-radius: 10px;
+  border: 0;
+  color: #e3e5ec;
+  height: 34px;
+  width: 160px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btnLogin:Hover {
+  background-color: #5a97e7;
+}
+
+

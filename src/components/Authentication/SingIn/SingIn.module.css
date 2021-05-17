@@ -1,0 +1,59 @@
+
+.SingInWrapper {
+  margin-top: 70px;
+  color: #e3e5ec;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkboxWrapper {
+  margin-top: 15px;
+  display:  flex;
+  color: #e3e5ec;
+}
+
+.btnSingIn {
+  margin-top: 15px;
+  background-color: #2d88ff;
+  border-radius: 10px;
+  border: 0;
+  color: #e3e5ec;
+  height: 34px;
+  width: 160px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btnSingIn:Hover {
+  background-color: #5a97e7;
+}
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+.wrapper {
+  text-align: center;
+}
+
+.form {
+  padding: 30px;
+  background-color: inherit;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  justify-content: space-around;
+  position: absolute;
+  margin-left: 400px;
+  margin-top: 250px;
+}

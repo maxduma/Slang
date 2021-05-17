@@ -1,0 +1,106 @@
+.header {
+  grid-area: header;
+  background-color: #303030;
+  padding: 5px;
+  color: #e3e5ec;
+}
+
+.innerWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.headerLeft {
+  width: 500px;
+}
+
+.img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+
+/* ////// Right */
+.headerRight {
+  padding: 5px 30px 0 0;
+}
+
+
+/* .loginBlock {
+  float: right;
+} */
+
+.loginBlock a {
+  color: white;
+  text-decoration: none;
+}
+
+.headerRightWrapper {
+  max-height: 90px;
+}
+
+.headerCurrentUserData {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.myPage {
+  margin:  0 70px 0 0;
+  padding: 0 10px 0 10px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  background-color: #6ca7f3;
+  border-radius: 15px;
+  font-size: 15px;
+}
+
+.myPage:hover {
+  background-color: #5a97e7;
+}
+
+.headerAva {
+  margin-left: 10px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+
+
+
+
+.btnLogout {
+  background-color: #2d88ff;
+  border-radius: 10px;
+  border: 0;
+  color: #e3e5ec;
+  height: 34px;
+  width: 60px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btnLogout:Hover {
+  background-color: #5a97e7;
+}
+
+/* ////  Right  Login*/
+
+.btnLogin {
+  padding-top: 5px;
+  background-color: #2d88ff;
+  border-radius: 10px;
+  border: 0;
+  color: #e3e5ec;
+  height: 34px;
+  width: 60px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btnLogin:Hover {
+  background-color: #5a97e7;
+}

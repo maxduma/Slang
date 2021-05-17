@@ -1,0 +1,56 @@
+.content {
+  grid-area: content; 
+  background-color: #1c1e21;
+}
+
+.wallpaper {
+  width: 100%;
+  height: 250px;
+}
+
+.avaWrapper {
+  display:  block;
+  width: 200px;
+  margin: -55px 0 0 30px;
+}
+
+.ava {
+    max-width: 200px;
+    border-radius: 10%;
+}
+
+.statusWrapper {
+  margin: 10px 0 0 30px;
+  padding: 10px;
+}
+
+/* sidebar */
+.sidebar {
+  margin: 10px;
+  padding: 15px;
+  width: 30%;
+  background-color:#202225;
+  border-radius: 20px;
+}
+
+.profileBottomWrapper {
+  margin-top: 20px;
+  display:  flex;
+}
+
+
+.flex {
+  display:  flex;
+}
+
+.mr {
+  margin-right: 5px;
+}
+
+/* Follow Block */
+.followBlockWrapper {
+  background-color:  #363b42;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 20px 0;
+}

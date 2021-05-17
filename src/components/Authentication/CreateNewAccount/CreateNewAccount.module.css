@@ -1,0 +1,36 @@
+
+.wrapper {
+  margin-top: 70px;
+  text-align: center;
+}
+
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.btnCreateAccount {
+  margin-top: 15px;
+  background-color: #2d88ff;
+  border-radius: 10px;
+  border: 0;
+  color: #e3e5ec;
+  height: 34px;
+  width: 160px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btnCreateAccount:Hover {
+  background-color: #5a97e7;
+}
+
+
+
+
+
