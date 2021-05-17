@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/MaxDuma16/Slang/static/css/main.512444af.chunk.css",
+    "main.js": "/MaxDuma16/Slang/static/js/main.86543249.chunk.js",
+    "main.js.map": "/MaxDuma16/Slang/static/js/main.86543249.chunk.js.map",
+    "runtime-main.js": "/MaxDuma16/Slang/static/js/runtime-main.5e8f345a.js",
+    "runtime-main.js.map": "/MaxDuma16/Slang/static/js/runtime-main.5e8f345a.js.map",
+    "static/js/2.bc5dd52a.chunk.js": "/MaxDuma16/Slang/static/js/2.bc5dd52a.chunk.js",
+    "static/js/2.bc5dd52a.chunk.js.map": "/MaxDuma16/Slang/static/js/2.bc5dd52a.chunk.js.map",
+    "static/css/3.f0196560.chunk.css": "/MaxDuma16/Slang/static/css/3.f0196560.chunk.css",
+    "static/js/3.d030f0d2.chunk.js": "/MaxDuma16/Slang/static/js/3.d030f0d2.chunk.js",
+    "static/js/3.d030f0d2.chunk.js.map": "/MaxDuma16/Slang/static/js/3.d030f0d2.chunk.js.map",
+    "static/css/4.c9812969.chunk.css": "/MaxDuma16/Slang/static/css/4.c9812969.chunk.css",
+    "static/js/4.92e408f8.chunk.js": "/MaxDuma16/Slang/static/js/4.92e408f8.chunk.js",
+    "static/js/4.92e408f8.chunk.js.map": "/MaxDuma16/Slang/static/js/4.92e408f8.chunk.js.map",
+    "static/css/5.bbc777a6.chunk.css": "/MaxDuma16/Slang/static/css/5.bbc777a6.chunk.css",
+    "static/js/5.6c095d8b.chunk.js": "/MaxDuma16/Slang/static/js/5.6c095d8b.chunk.js",
+    "static/js/5.6c095d8b.chunk.js.map": "/MaxDuma16/Slang/static/js/5.6c095d8b.chunk.js.map",
+    "index.html": "/MaxDuma16/Slang/index.html",
+    "static/css/3.f0196560.chunk.css.map": "/MaxDuma16/Slang/static/css/3.f0196560.chunk.css.map",
+    "static/css/4.c9812969.chunk.css.map": "/MaxDuma16/Slang/static/css/4.c9812969.chunk.css.map",
+    "static/css/5.bbc777a6.chunk.css.map": "/MaxDuma16/Slang/static/css/5.bbc777a6.chunk.css.map",
+    "static/css/main.512444af.chunk.css.map": "/MaxDuma16/Slang/static/css/main.512444af.chunk.css.map",
+    "static/js/2.bc5dd52a.chunk.js.LICENSE.txt": "/MaxDuma16/Slang/static/js/2.bc5dd52a.chunk.js.LICENSE.txt",
+    "static/media/Like.556c78a5.png": "/MaxDuma16/Slang/static/media/Like.556c78a5.png",
+    "static/media/Spinner.1a0b7406.gif": "/MaxDuma16/Slang/static/media/Spinner.1a0b7406.gif",
+    "static/media/delete.7c8668f7.png": "/MaxDuma16/Slang/static/media/delete.7c8668f7.png",
+    "static/media/logo.caaba424.png": "/MaxDuma16/Slang/static/media/logo.caaba424.png",
+    "static/media/noLike.af10e35b.png": "/MaxDuma16/Slang/static/media/noLike.af10e35b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5e8f345a.js",
+    "static/js/2.bc5dd52a.chunk.js",
+    "static/css/main.512444af.chunk.css",
+    "static/js/main.86543249.chunk.js"
+  ]
+}
