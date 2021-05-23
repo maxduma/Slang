@@ -46,18 +46,17 @@ class HomeContainer extends React.Component {
 
   }
 
-
   render() {
     return (
-        <div>
-          <Home 
-            {...this.props} 
-            allPosts={this.props.allPosts} 
-            friends={this.props.friends} 
-            allPostsIsFetching={this.props.allPostsIsFetching}
-            friendsIsFetching={this.props.friendsIsFetching}
-            /> 
-        </div>
+      <div>
+        <Home 
+          {...this.props} 
+          allPosts={this.props.allPosts} 
+          friends={this.props.friends} 
+          allPostsIsFetching={this.props.allPostsIsFetching}
+          friendsIsFetching={this.props.friendsIsFetching}
+          /> 
+      </div>
     )
   }
 }

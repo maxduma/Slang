@@ -6,9 +6,7 @@ import {maxLengthCreator} from "../../../utils/validators/validators";
 import { Textarea } from "../../common/FormsControls/FormsControls";
 
 const MyPosts = React.memo(({posts, isHomePage, urlPhoto, deletePost, myUid, addPost, currentProfileUid, addLike, removeLike }) => {
-
   const isMyPage =  isHomePage ? false : myUid === currentProfileUid;
-
   const postsElements = 
   [...posts]
   .reverse()
@@ -35,10 +33,7 @@ const MyPosts = React.memo(({posts, isHomePage, urlPhoto, deletePost, myUid, add
   );
 });
 
-
-
 const maxLength1000 = maxLengthCreator(1000);
-
 const AddNewPostForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit} className={c.postSendWrapper}>

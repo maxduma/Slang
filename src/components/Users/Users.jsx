@@ -1,11 +1,8 @@
 import React from 'react';
-import styles from './users.module.css';
 import Pagination from '../common/Paginator/Pagination';
 import User from './User/User';
 
-
 const Users = ({users, totalUsersCount, pageSize, currentPage, follow, addFollow, unfollow, removeFollow, isFollowingInProgress, onPageChanged, portionSize}) => {
-
   const followFun = (uid) => {
     follow(uid)
     addFollow(uid)
@@ -15,7 +12,6 @@ const Users = ({users, totalUsersCount, pageSize, currentPage, follow, addFollow
     unfollow(uid)
     removeFollow(uid)
   }
-
 
   return (
     <div>

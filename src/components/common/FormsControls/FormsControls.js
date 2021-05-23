@@ -1,5 +1,4 @@
 import React from 'react';
-import { Field } from 'redux-form';
 import c from './FormsControls.module.css';
 
 export const Textarea = (props) => {

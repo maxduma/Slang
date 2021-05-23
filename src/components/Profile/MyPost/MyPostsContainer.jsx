@@ -11,7 +11,6 @@ import { addLikeFunction, addPostFunction, deletePostFunction, removeLikeFunctio
 import { withRouter } from 'react-router';
 
 const MyPostsContainer = (props) => {
-
   const isHomePage = props.match.path === "/home";
 
   const addPost = (values, urlPhoto) => {
@@ -37,10 +36,7 @@ const MyPostsContainer = (props) => {
   return (
     <MyPosts  {...props} posts={props.posts} isHomePage={isHomePage}  addPost={addPost} deletePost={deletePost} addLike={addLike} removeLike={removeLike}/>
   )
-
 }
-
-
 
 const mapStateToProps = (state) => {
   return {
@@ -52,7 +48,6 @@ const mapStateToProps = (state) => {
     surname: state.auth.currentUserData.surname
   }
 }
-
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -75,7 +70,6 @@ const mapDispatchToProps = (dispatch) => {
 
   }
 }
-
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),

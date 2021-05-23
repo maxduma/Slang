@@ -1,6 +1,5 @@
 import profileReducer, { addPostActionCreator } from "./profile-reducer";
 import React from 'react';
-
 import { render, screen } from '@testing-library/react';
 
 it('length of post should be incremented', () => {

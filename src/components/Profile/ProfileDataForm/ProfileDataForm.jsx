@@ -10,7 +10,7 @@ const ProfileDataForm = ({profile, onSubmitForm}) => {
   if (!profile) {
     return <Spinner />
   }
-  
+
   const onSubmit = (formData) => {
     onSubmitForm(formData);
   };
@@ -24,7 +24,6 @@ const ProfileDataForm = ({profile, onSubmitForm}) => {
     education: profile.personalInformation.education,
     hobby: profile.personalInformation.hobby,
   }
-  console.log('initialData', initialData);
 
   return (
     <div>
@@ -76,7 +75,6 @@ const SingInForm = (props) => {
     </div>
     )
   };
-
 
 const ProfileDataFormReduxForm = reduxForm({ form: "editProfile" })(SingInForm);
 

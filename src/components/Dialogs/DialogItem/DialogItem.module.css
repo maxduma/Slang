@@ -1,7 +1,6 @@
 .dialogItem {
   max-width: 200px;
   min-width: 150px;
-  
   padding: 5px 5px 5px 10px;
   background-color: #131416;
   color: #e3e5ec;
@@ -11,13 +10,13 @@
 }
 .dialogItem .active {
   color: gold;
-} 
+}
 
 .dialogItemText {
   display: flex;
   color: #e3e5ec;
   text-decoration: none;
-} 
+}
 
 .img {
   width: 40px;

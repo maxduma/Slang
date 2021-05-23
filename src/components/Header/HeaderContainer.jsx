@@ -4,19 +4,16 @@ import {setAuthCurrentUserData} from '../../redux/auth-reducer';
 import {connect} from 'react-redux';
 import { getCurrentUserDataUid } from '../../redux/users-selectors';
 
-
 class HeaderContainer extends Component {
-
   logout() {
     localStorage.removeItem('CurrentUserData')
     window.location.reload();
   }
-
-    render() {
-        return (
-            <Header {...this.props} logout={this.logout}/>
-         )
-    }
+  render() {
+    return (
+      <Header {...this.props} logout={this.logout}/>
+      )
+  }
 }
 
 const mapStateToProps = (state) => {

@@ -1,13 +1,10 @@
 import React from 'react'
-// import Spinner from '../common/Spinner/Spinner';
 import c from  './FollowCard.module.css';
 import {NavLink} from 'react-router-dom';
 import userPhotoMan from '../../../../assets/defaultMan.png';
 import userPhotoWoman from '../../../../assets/defaultWoman.png';
 
-
 const FollowCard = ({urlPhoto, name, surname, gender, uid}) => {
-
   const defaultPhoto = gender === 'male' ? userPhotoMan : userPhotoWoman;
   return (
     <div>
@@ -23,8 +20,6 @@ const FollowCard = ({urlPhoto, name, surname, gender, uid}) => {
         </div>
       </NavLink>
     </div>
-    
-
   )
 }
 

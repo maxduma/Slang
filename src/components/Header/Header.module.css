@@ -19,16 +19,10 @@
   border-radius: 50%;
 }
 
-
-/* ////// Right */
+/* Right */
 .headerRight {
   padding: 5px 30px 0 0;
 }
-
-
-/* .loginBlock {
-  float: right;
-} */
 
 .loginBlock a {
   color: white;
@@ -68,10 +62,6 @@
   border-radius: 50%;
 }
 
-
-
-
-
 .btnLogout {
   background-color: #2d88ff;
   border-radius: 10px;
@@ -87,7 +77,7 @@
   background-color: #5a97e7;
 }
 
-/* ////  Right  Login*/
+/* Right  Login*/
 
 .btnLogin {
   padding-top: 5px;

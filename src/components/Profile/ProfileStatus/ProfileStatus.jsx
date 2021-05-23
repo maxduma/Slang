@@ -25,7 +25,6 @@ const ProfileStatus = (props) => {
     props.patchStatus(props.myUid, formData.status);
   };
 
-
   const initialData = {
     status: props.status
   }
@@ -44,7 +43,7 @@ export default ProfileStatus;
 
 const maxLength750 = maxLengthCreator(750);
 const ProfileStatusForm = (props) => {
-  
+
   return (
     <div>
       <form onBlur={props.handleSubmit}>
@@ -69,4 +68,4 @@ const ProfileStatusForm = (props) => {
     )
   };
 
-  const  ProfileStatusFormRedux = reduxForm({ form: "profileStatus" })(ProfileStatusForm);
+const  ProfileStatusFormRedux = reduxForm({ form: "profileStatus" })(ProfileStatusForm);

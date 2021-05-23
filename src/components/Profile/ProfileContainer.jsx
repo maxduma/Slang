@@ -17,7 +17,7 @@ class ProfileContainer extends React.Component {
       //   this.props.history.push("/login")
       // }
     }
-    
+
     this.props.getUserProfile(userId, this.props.myILikePostsUids);
     this.props.getStatus(userId);
   }
@@ -37,18 +37,18 @@ class ProfileContainer extends React.Component {
   }
 
 render() {
-    return (
-        <div>
-            <Profile  
-            {...this.props} 
-            isOwner={this.props.match.params.userId === this.props.myUid || !this.props.match.params.userId}
-            patchStatus={this.props.patchStatus} 
-            changeUrlPhotoThunk={this.props.changeUrlPhotoThunk}
-            changeProfileDataForm={this.changeProfileDataForm}
-            posts={this.props.posts}
-            />
-        </div>
-    )
+  return (
+    <div>
+      <Profile  
+      {...this.props} 
+      isOwner={this.props.match.params.userId === this.props.myUid || !this.props.match.params.userId}
+      patchStatus={this.props.patchStatus} 
+      changeUrlPhotoThunk={this.props.changeUrlPhotoThunk}
+      changeProfileDataForm={this.changeProfileDataForm}
+      posts={this.props.posts}
+      />
+    </div>
+  )
  }
 }
 

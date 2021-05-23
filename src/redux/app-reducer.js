@@ -29,5 +29,4 @@ export const initializedApp = (name, surname, location, personalInformation, gen
   })
 }
 
-
 export default appReducer;

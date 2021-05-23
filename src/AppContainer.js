@@ -7,7 +7,6 @@ import Spinner from './components/common/Spinner/Spinner';
 import { usersAPI } from './api/api';
 
 class AppContainer extends React.Component {
-
   catchAllUnhandledErrors = (promiseRejectionEvent) => {
     console.log(promiseRejectionEvent);
   }
@@ -22,7 +21,6 @@ class AppContainer extends React.Component {
     } else {
       this.props.initializedSuccess()
     }
-
     window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
   }
 

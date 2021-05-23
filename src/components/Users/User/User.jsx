@@ -27,14 +27,13 @@ const User = ({user, isFollowingInProgress, followFun, unfollowFun}) => {
           </span>
           <div  className={c.btnBlock}>
               { user.followed ?  
-              <button className={c.btnUnfollow} disabled={isFollowingInProgress.some(uid => uid === user.uid) } onClick={() => {  unfollowFun(user.uid)  }}>unfollow</button> : 
-              <button className={c.btnFollow} disabled={isFollowingInProgress.some(uid => uid === user.uid) } onClick={() => {  followFun(user.uid)  }}>follow</button>}
+              <button className={c.btnUnfollow} disabled={isFollowingInProgress.some(uid => uid === user.uid)} onClick={() => {unfollowFun(user.uid)}}>unfollow</button> : 
+              <button className={c.btnFollow} disabled={isFollowingInProgress.some(uid => uid === user.uid)} onClick={() => {followFun(user.uid)}}>follow</button>}
           </div>
           </div>
       }
     </div>
   )
-
 }
 
 export default User;

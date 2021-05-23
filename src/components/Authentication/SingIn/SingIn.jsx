@@ -6,7 +6,6 @@ import { maxLengthCreator, required } from "../../../utils/validators/validators
 import style from "../../common/FormsControls/FormsControls.module.css";
 
 const SingIn = (props) => {
-  
   const onSubmit = (formData) => {
     props.singIn(formData);
   };

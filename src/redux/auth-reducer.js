@@ -34,7 +34,6 @@ const initialState = {
 }
 
 const authReducer = (state = initialState, action) => {
-
   switch(action.type) {
     case SET_AUTH_CURRENT_USER_DATA:
       return { ...state,
@@ -87,7 +86,6 @@ const authReducer = (state = initialState, action) => {
 export const setAuthCurrentUserData = ( name, surname, location, personalInformation, gender, uid, email, urlPhoto, status, isAuth, following, followers, iLikePostsUids ) => ({type: SET_AUTH_CURRENT_USER_DATA, data: { name, surname, location, personalInformation, gender, uid, email, urlPhoto, status, isAuth, following, followers, iLikePostsUids }});
 export const setFollowing = ( uidListFollowing ) => ({type: SET_CURRENT_USER_DATA_FOLLOWING, uidListFollowing });
 export const setFollowers = ( uidListFollowers ) => ({type: SET_CURRENT_USER_DATA_FOLLOWERS, uidListFollowers });
-
 export const setNotMyFollowers = ( uidListNotMyFollowers ) => ({type: SET_NOT_MY_FOLLOWERS, uidListNotMyFollowers });
 
 export const createNewAccountThunk = (formData) => (dispatch) => {
@@ -170,6 +168,5 @@ export const setAuthCurrentUser = (formData) => (dispatch) => {
     dispatch(stopSubmit("SingIn", {_error: error.message}));
   });
 }
-
 
 export default authReducer;

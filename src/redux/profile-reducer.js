@@ -38,120 +38,111 @@ const initialState = {
 }
 
 const profileReducer = (state = initialState, action) => {
-
-    switch(action.type) {
-      case ADD_POST: 
-        const newPost = {
-          postId: action.postData.postId,
-          text: action.postData.text,
-          isLike: action.postData.isLike,
-          ownerPostUrlPhoto: action.postData.ownerPostUrlPhoto,
-          likesUid: action.postData.likesUid,
-          ownerPostUid: action.postData.ownerPostUid,
-          ownerPostName: action.postData.ownerPostName,
-          ownerPostSurname: action.postData.ownerPostSurname,
-          data: {
-            day: action.postData.data.day,
-            month: action.postData.data.month,
-            year: action.postData.data.year,
-            hours: action.postData.data.hours,
-            minutes: action.postData.data.minutes,
-          }
-          };
-        return {
-          ...state,
+  switch(action.type) {
+    case ADD_POST: 
+      const newPost = {
+        postId: action.postData.postId,
+        text: action.postData.text,
+        isLike: action.postData.isLike,
+        ownerPostUrlPhoto: action.postData.ownerPostUrlPhoto,
+        likesUid: action.postData.likesUid,
+        ownerPostUid: action.postData.ownerPostUid,
+        ownerPostName: action.postData.ownerPostName,
+        ownerPostSurname: action.postData.ownerPostSurname,
+        data: {
+          day: action.postData.data.day,
+          month: action.postData.data.month,
+          year: action.postData.data.year,
+          hours: action.postData.data.hours,
+          minutes: action.postData.data.minutes,
+        }
+        };
+      return {
+        ...state,
+        profile: { 
+          ...state.profile,
+          posts: [ ...state.profile.posts, newPost ]
+        }
+        };
+    case ADD_ALL_POSTS: 
+      return {
+        ...state,
+        profile: { 
+          ...state.profile,
+          posts: action.posts
+        }
+        };
+        case DELETE_POST:
+        return {...state,
           profile: { 
             ...state.profile,
-            posts: [ ...state.profile.posts, newPost ]
-          }
-         };
-
-      case ADD_ALL_POSTS: 
-        return {
-          ...state,
-          profile: { 
-            ...state.profile,
-            posts: action.posts
-          }
-         };
-
-         case DELETE_POST:
-          return {...state,
-            profile: { 
-              ...state.profile,
-              posts: [ ...state.profile.posts.filter(p => p.postId !== action.postId) ]
-            }
-          }
-
-      case SET_USER_PROFILE: 
-       return {
-          ...state,
-          profile: {
-            name: action.profile.name,
-            surname: action.profile.surname,
-            email: action.profile.email,
-            followed: action.profile.followed,
-            location: {
-              country: action.profile.location.country,
-              city: action.profile.location.city
-            },
-            personalInformation: {
-              job: action.profile.personalInformation.job,
-              education: action.profile.personalInformation.education,
-              hobby: action.profile.personalInformation.hobby
-            },
-            urlPhoto: action.profile.urlPhoto,
-            gender: action.profile.gender,
-            uid: action.profile.uid,
-            status: action.profile.status,
-            following: action.profile.following,
-            followers: action.profile.followers,
-            posts: action.posts,
-            iLikePostsUids: action.profile.iLikePostsUids
-          }
-        };
-
-      case SET_STATUS: 
-       return {
-          ...state,
-          profile: { ...state.profile,
-            status: action.status
-          }
-        };
-
-      case SET_LIKE: 
-       return {
-          ...state,
-          profile: { ...state.profile,
-            posts: [
-              ...state.profile.posts.map(p => p.postId === action.post.postId ? action.post : p )
-            ]
-          }
-        };
-
-      case SET_CURRENT_USER_DATA_I_LIKE_POST_UIDS:
-        return { ...state,
-          profile: { ...state.profile,
-            iLikePostsUids: action.iLikePostsUids
+            posts: [ ...state.profile.posts.filter(p => p.postId !== action.postId) ]
           }
         }
-
-      // case SAVE_PHOTO_SUCCESS:
-      //   return { ...state,
-      //     profile: { ...state.profile,
-      //       photo: action.photo
-      //     }
-      //   }
-      case CHANGE_PHOTO_SUCCESS:
-        return { ...state,
-          profile: { ...state.profile,
-            urlPhoto: action.urlPhoto
-          }
+    case SET_USER_PROFILE: 
+      return {
+        ...state,
+        profile: {
+          name: action.profile.name,
+          surname: action.profile.surname,
+          email: action.profile.email,
+          followed: action.profile.followed,
+          location: {
+            country: action.profile.location.country,
+            city: action.profile.location.city
+          },
+          personalInformation: {
+            job: action.profile.personalInformation.job,
+            education: action.profile.personalInformation.education,
+            hobby: action.profile.personalInformation.hobby
+          },
+          urlPhoto: action.profile.urlPhoto,
+          gender: action.profile.gender,
+          uid: action.profile.uid,
+          status: action.profile.status,
+          following: action.profile.following,
+          followers: action.profile.followers,
+          posts: action.posts,
+          iLikePostsUids: action.profile.iLikePostsUids
         }
-
-      default: 
-        return state;
-    }
+      };
+    case SET_STATUS: 
+      return {
+        ...state,
+        profile: { ...state.profile,
+          status: action.status
+        }
+      };
+    case SET_LIKE: 
+      return {
+        ...state,
+        profile: { ...state.profile,
+          posts: [
+            ...state.profile.posts.map(p => p.postId === action.post.postId ? action.post : p )
+          ]
+        }
+      };
+    case SET_CURRENT_USER_DATA_I_LIKE_POST_UIDS:
+      return { ...state,
+        profile: { ...state.profile,
+          iLikePostsUids: action.iLikePostsUids
+        }
+      }
+    // case SAVE_PHOTO_SUCCESS:
+    //   return { ...state,
+    //     profile: { ...state.profile,
+    //       photo: action.photo
+    //     }
+    //   }
+    case CHANGE_PHOTO_SUCCESS:
+      return { ...state,
+        profile: { ...state.profile,
+          urlPhoto: action.urlPhoto
+        }
+      }
+    default: 
+      return state;
+  }
 }
 
 export const addPostActionCreator = (postData) =>  ({type: ADD_POST, postData})
@@ -188,13 +179,12 @@ export const getUserProfile = (userId, myILikePostsUids) => (dispatch) => {
 
 export const getStatus = (userId) => async (dispatch) => {
   const response = await profileAPI.getStatus(userId)
-        dispatch(setStatus(response.data));
+    dispatch(setStatus(response.data));
 }
 
 export const patchStatus = (myUid, NewStatus) => async (dispatch) => {
   const response = await profileAPI.patchStatus(myUid, NewStatus)
-  
-        dispatch(setStatus(Object.values(response.data).join()));
+    dispatch(setStatus(Object.values(response.data).join()));
 }
 // export const savePhoto = (file) => async (dispatch) => {
 //   const response = await profileAPI.savePhoto(file)
@@ -202,19 +192,19 @@ export const patchStatus = (myUid, NewStatus) => async (dispatch) => {
 // }
 
 export const changeUrlPhotoThunk = (urlPhoto, myUid) => async (dispatch) => {
-    const response = await profileAPI.changeUrlPhoto(urlPhoto, myUid);
-        dispatch(changeUrlPhoto(response.data.urlPhoto));
-        dispatch(reset("urlPhotoForm"));
+  const response = await profileAPI.changeUrlPhoto(urlPhoto, myUid);
+    dispatch(changeUrlPhoto(response.data.urlPhoto));
+    dispatch(reset("urlPhotoForm"));
 }
 
 export const changeProfileData = (formData, myUid, myILikePostsUids) => async (dispatch) => {
   const response = await profileAPI.changeProfileData(formData, myUid)
     if (response.statusText === "OK") {
       dispatch(getUserProfile(myUid, myILikePostsUids));
-       // dispatch(reset("editProfile"));
+      // dispatch(reset("editProfile"));
     } else {
       console.log('else', response)
-      dispatch(stopSubmit("editProfile", {_error: response.data.message})); // did not check
+      dispatch(stopSubmit("editProfile", {_error: response.data.message})); //dnc
       return Promise.reject(response.data.message);
     }
 }

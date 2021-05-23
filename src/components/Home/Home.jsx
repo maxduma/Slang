@@ -4,8 +4,7 @@ import c from  './Home.module.css';
 import MyPostsContainer from '../Profile/MyPost/MyPostsContainer';
 import FriendsBar from './FriendsBar/FriendsBar';
 
-const Home = ({allPosts, friends, allPostsIsFetching, friendsIsFetching }) => {
-
+const Home = ({allPosts, friends, allPostsIsFetching, friendsIsFetching}) => {
   return (
     <div>
       <div>Home</div>

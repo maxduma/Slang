@@ -1,5 +1,4 @@
 import { usersAPI } from "../api/api";
-import { setFollowing, setNotMyFollowers } from '../redux/auth-reducer';
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -51,10 +50,8 @@ const usersReducer = (state = initialState, action) => {
         }
       case SET_TOTAL_USERS_COUNT:
         return { ...state, totalUsersCount: action.count };
-      
       case TOGGLE_IS_FETCHING:
         return { ...state, isFetching: action.isFetching }
-
       case TOGGLE_IS_FOLLOWING_PROGRESS:
         return { ...state, 
           isFollowingInProgress: action.isFetching ?
@@ -65,7 +62,6 @@ const usersReducer = (state = initialState, action) => {
   }
 }
 
-
 export const follow = (uid) =>  ({type: FOLLOW, uid})
 export const unfollow = (uid) => ({type: UNFOLLOW, uid})
 export const setUsers = (users) => ({type: SET_USERS, users})
@@ -74,13 +70,9 @@ export const setTotalUsersCount = (totalCount) => ({type: SET_TOTAL_USERS_COUNT,
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching: isFetching})
 export const toggleIsFollowingProgress = (isFetching, uid) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, uid })
 
-
 export const getUsersThunkCreator = (myUid, currentPage, pageSize, following, pageNumber) => {
-
   return (dispatch) => {
-
   dispatch(toggleIsFetching(true));  // Spinner
-
   dispatch(setCurrentPage(pageNumber))
   // Get users 
   usersAPI.getAllUsers()
@@ -94,15 +86,12 @@ export const getUsersThunkCreator = (myUid, currentPage, pageSize, following, pa
           newUsers.push(user)
         }
       })
-
     // set Total Users
     dispatch(setTotalUsersCount(newUsers.length)) //  DataBase need refactoring => res.data.totalCount 
     // Set users according to the pageSize ||  "pageSize (5)"  // DataBase need refactoring => this need delete later
     const startPage =  (currentPage - 1) * pageSize;
     const lastPage = startPage + pageSize;
-
     let partUsers = [];
-
     for (let key in newUsers) { 
       if ( key >= startPage && key < lastPage  ) {
         partUsers.push(newUsers[key])

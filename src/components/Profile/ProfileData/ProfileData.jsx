@@ -11,13 +11,13 @@ const ProfileData = ({profile, isOwner, goToEditMode, profile: {name, personalIn
   if (!profile) {
     return <Spinner />
   }
+  
   return (
     <div className={c.profileDataWrapper}>
       {isOwner && 
       <div className={c.btnEditWrapper}>
         <button className={c.btnEdit} onClick={goToEditMode}>
           <img className={c.imgEdit} src={editImg} alt={'edit'}/>
-          
         </button>
       </div>
       }
@@ -25,8 +25,6 @@ const ProfileData = ({profile, isOwner, goToEditMode, profile: {name, personalIn
         <h2 className={c.m}>{name} </h2>
         <h2 className={c.m}>{surname}</h2>
       </div>
-
-
       <div className={c.flexLocation}>
         <img className={c.location} src={locationImg} alt={'edit'}/>
         <p className={c.m}>{country}</p>
@@ -51,7 +49,7 @@ const ProfileData = ({profile, isOwner, goToEditMode, profile: {name, personalIn
       </div>
       }
     </div>
-  ) 
+  )
 }
 
 export default ProfileData;

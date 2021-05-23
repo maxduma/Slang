@@ -4,9 +4,7 @@ import SingInContainer from "../Authentication/SingIn/SingInContainer";
 import c from './Login.module.css';
 
 const Login = () => {
-
   const [singIn, setSingIn] = useState(false);
-
 
   const showSingIn = () => {
     setSingIn(true);
@@ -15,11 +13,9 @@ const Login = () => {
     setSingIn(false);
   }
 
-
   return (
     <div className={c.wrapper}>
       <h1 className={c.title}>Log In</h1>
-
       { singIn ?
       <div className={c.btnWrapper}>
          <button className={c.btnLogin} onClick={showCreateNewAccount}>Create New Account</button>
@@ -29,7 +25,6 @@ const Login = () => {
         <button className={c.btnLogin} onClick={showSingIn}>Sing In</button>
       </div>
       }
-
       { singIn ?
       <div>
         <SingInContainer />
@@ -39,7 +34,6 @@ const Login = () => {
         <CreateNewAccountContainer />
       </div>
       }
-
     </div>
   );
 };

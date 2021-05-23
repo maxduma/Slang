@@ -21,13 +21,11 @@ const reducers = combineReducers({
     app: appReducer
 });
 
-
 // Redux Dev Tools
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 const store = createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)) );
 
 window.store = store;  // delete later
-
 // const store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
 export default store;

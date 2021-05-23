@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import c from  './ProfileStatus.module.css';
 
 const ProfileStatus = (props) => {
-
   const isMyPage = props.myUid === props.currentProfileUid;
-  
   const [editMode, setEditMode] = useState(false);
   const [status, setStatus] = useState(props.status);
 

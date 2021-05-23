@@ -3,15 +3,12 @@ import React, {useState, useEffect} from 'react'
 import FollowCard from './FollowCard';
 import {usersAPI} from '../../../../api/api';
 
-
 const FollowCardContainer = (props) => {
-
   const [urlPhoto, setUrlPhoto] = useState();
   const [name, setName] = useState();
   const [surname, setSurname] = useState();
   const [gender, setGender] = useState();
   const [uid, setUid] = useState();
-
 
   useEffect(() => {
     usersAPI.getUser(props.uid)
@@ -24,16 +21,12 @@ const FollowCardContainer = (props) => {
       setUid(u.uid)
     })
   });
-  // }, [props.uid]);
-
 
   return (
-      <div>
-          <FollowCard  urlPhoto={urlPhoto} name={name} surname={surname} gender={gender} uid={uid} />
-      </div>
+    <div>
+      <FollowCard  urlPhoto={urlPhoto} name={name} surname={surname} gender={gender} uid={uid} />
+    </div>
   )
-
 }
-
 
 export default FollowCardContainer;

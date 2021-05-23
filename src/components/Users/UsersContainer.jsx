@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { follow, setUsers, unfollow, setCurrentPage, setTotalUsersCount, toggleIsFetching, toggleIsFollowingProgress, getUsersThunkCreator } from '../../redux/users-reducer';
 import { setFollowing, setNotMyFollowers } from '../../redux/auth-reducer';
-// import * as axios from 'axios';
 import Users from './Users';
 import Spinner from '../common/Spinner/Spinner';
 import { usersAPI } from '../../api/api';
@@ -10,100 +9,14 @@ import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
 import { getPageSize, getUsers, getTotalUsersCount, getCurrentPage, getIsFetching, getCurrentUserDataUid, getCurrentUserDataFollowing, getNotMyFollowers, getIsFollowingInProgress, getPortionSize } from '../../redux/users-selectors';
 
-
 class UsersContainer extends React.Component {
 	componentDidMount() {
 		this.props.getUsersThunkCreator(this.props.myUid, this.props.currentPage, this.props.pageSize, this.props.following, 1);
-
-		// 	this.props.toggleIsFetching(true);  // Spinner
-		// 	// Get users 
-		// 	// getAllUsers()
-		// 	.then(data => {
-		// 		// get users
-		// 		const users = Object.values(data);
-		// 			// Do not show my page 
-		// 			const newUsers = [];
-		// 			Object.values(users).map(user => {
-		// 				if (user.uid !== this.props.myUid) {
-		// 					newUsers.push(user)
-		// 				}
-		// 			})
-
-		// 		// set Total Users
-		// 				this.props.setTotalUsersCount(newUsers.length) //  DataBase need refactoring => res.data.totalCount 
-
-		// 		// Set users according to the pageSize ||  "pageSize (5)"  // DataBase need refactoring => this need delete later
-		// 		const startPage =  (this.props.currentPage - 1) * 5;
-		// 		const lastPage = startPage + this.props.pageSize;
-
-		// 		let partUsers = [];
-
-		// 		for (let key in newUsers) { 
-		// 			if ( key >= startPage && key < lastPage  ) {
-		// 				partUsers.push(newUsers[key])
-		// 			} 
-		// 		}
-
-		// 		// set followed Status
-		// 		Object.values(partUsers).map(u => {
-		// 				this.props.following.map(myUid => {
-		// 						if (u.uid === myUid) {
-		// 							u.followed = true
-		// 						}
-		// 				})
-		// 		})
-		// 		// set Users to state
-		// 		this.props.setUsers(partUsers);
-		// 		this.props.toggleIsFetching(false);  // Spinner
-		// 	})
-
 	}
 
 	onPageChanged = (pageNumber) => {
-
 		this.props.getUsersThunkCreator(this.props.myUid, pageNumber, this.props.pageSize, this.props.following, pageNumber);
-		// this.props.getUsersThunkCreator(this.props.myUid, this.props.currentPage, this.props.pageSize, this.props.following, pageNumber);
-
-	// 	this.props.toggleIsFetching(true);  // Spinner
-
-	// 	// set Current Page
-	// 	this.props.setCurrentPage(pageNumber)
-	// 	getAllUsers()
-	// 	.then(data => {
-	// 		// set users
-	// 		const users = Object.values(data);
-	// 				// Do not show my page 
-	// 			const newUsers = [];
-	// 			Object.values(users).map(user => {
-	// 				if (user.uid !== this.props.myUid) {
-	// 					newUsers.push(user)
-	// 				}
-	// 			})
-
-	// 		// Set users according to the pageSize ||  "pageSize (5)"  // DataBase need refactoring => this need delete later
-	// 		const startPage =  (this.props.currentPage - 1) * 5;
-	// 		const lastPage = startPage + this.props.pageSize;
-	// 		let partUsers = [];
-	
-	// 		for (let key in newUsers) { 
-	// 			if ( key >= startPage && key < lastPage  )    {
-	// 				partUsers.push(newUsers[key])
-	// 			} 
-	// 		}
-			
-	// 	// set followed Status
-	// 	Object.values(partUsers).map(u => {
-	// 		this.props.following.map(myUid => {
-	// 				if (u.uid === myUid) {
-	// 					u.followed = true
-	// 				}
-	// 		})
-	// 	})
-	// 	// set Users to state
-	// 	this.props.setUsers(partUsers);
-	// 	this.props.toggleIsFetching(false); // Spinner
-	// 	})
-	}  
+	}
 
 	addFollow = (uid) => {
 		// set IsFollowing for disabled button
@@ -118,7 +31,7 @@ class UsersContainer extends React.Component {
 					return id === uid
 				})
 
-            // uid !== this.props.myUid  - do not follow for myself
+      // uid !== this.props.myUid  - do not follow for myself
       if (!a && uid !== this.props.myUid) {
         newFollowing.push(uid)
       }
@@ -129,19 +42,19 @@ class UsersContainer extends React.Component {
 			usersAPI.patchNewFollowingUID(this.props.myUid, this.props.following)
 		})
 
-	// 2 . set into another user data,  I follow him
+	// 2. set into another user data,  I follow him
 	  usersAPI.getUser(uid)
 		.then(data => {
 			const newFollowers = data.followers;
-					// Do not push the same uid
-					const a = newFollowers.some( id => {
-						return id === this.props.myUid
-					})
+        // Do not push the same uid
+        const a = newFollowers.some( id => {
+          return id === this.props.myUid
+        })
 
-							// uid !== this.props.myUid  - do not follow for myself
-					if (!a && uid !== this.props.myUid) {
-						newFollowers.push(this.props.myUid)
-					}
+        // uid !== this.props.myUid  - do not follow for myself
+        if (!a && uid !== this.props.myUid) {
+          newFollowers.push(this.props.myUid)
+        }
 
 			this.props.setNotMyFollowers(newFollowers);
 		})
@@ -152,7 +65,7 @@ class UsersContainer extends React.Component {
 				this.props.toggleIsFollowingProgress(false, uid);
 			})
 		})
-	}  
+	}
 
 	removeFollow = (uid) => {
 		// set IsFollowing for disabled button
@@ -180,7 +93,7 @@ class UsersContainer extends React.Component {
 		})
 
 
-		// 2 . set into another user data,  I unfollow him
+		// 2. set into another user data,  I unfollow him
 		usersAPI.getUser(uid)
 		.then(data => {
 			const newFollowers = data.followers;
@@ -202,11 +115,11 @@ class UsersContainer extends React.Component {
 				this.props.toggleIsFollowingProgress(false, uid);
 			})
 		})
-	}  // /remove Follow
+	}  // remove Follow
 
 render() {
 	return <>
-	{this.props.isFetching ? <Spinner /> : null }
+	{this.props.isFetching ? <Spinner /> : null}
 		<Users 
 		  isFollowingInProgress={this.props.isFollowingInProgress}
 			addFollow={this.addFollow}

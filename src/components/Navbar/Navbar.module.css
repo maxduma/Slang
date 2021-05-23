@@ -1,16 +1,14 @@
 .navWrapper {
-    grid-area: nav;
-    background-color: #2a2c30;
-    padding: 20px;
-    min-width: 140px;
+  grid-area: nav;
+  background-color: #2a2c30;
+  padding: 20px;
+  min-width: 140px;
   }
-  
+
 .item a {
   color: #e3e5ec;
   text-decoration: none;
 }
-
-
 
 .item .active {
   color: gold;

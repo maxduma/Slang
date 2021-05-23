@@ -20,12 +20,6 @@ const Profile = ({ posts, changeUrlPhotoThunk, changeProfileDataForm, isOwner, p
     return <Spinner />
   }
 
-  // const onMainPhotoSelected = (e) => {
-  //   if(e.target.files.length) {
-  //     savePhoto(e.target.files[0])
-  //   }
-  // }
-
   const avaChangeActiveBtn = () => {
     avaChangeActive ?
     setAvaChangeActive(false) :   setAvaChangeActive(true)
@@ -50,7 +44,6 @@ const Profile = ({ posts, changeUrlPhotoThunk, changeProfileDataForm, isOwner, p
       <div>
         <img  className={c.wallpaper}  src="https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_960_720.jpg" alt=""/>
       </div>
-
       <div className={c.flex}>
         <div className={c.avaWrapper}>
           {isOwner ? 
@@ -60,7 +53,6 @@ const Profile = ({ posts, changeUrlPhotoThunk, changeProfileDataForm, isOwner, p
             : <img className={c.ava} alt="" src={urlPhoto ? urlPhoto : defaultPhoto} />
           }
           {isOwner && avaChangeActive &&
-          // <input type={'text'} onChange={changeUrlPhotoInput}/>
             <UrlPhotoReduxForm onSubmit={onSubmit} />
           }
         </div>
@@ -70,7 +62,6 @@ const Profile = ({ posts, changeUrlPhotoThunk, changeProfileDataForm, isOwner, p
       </div>
       <div className={c.profileBottomWrapper}>
       <div  className={c.sidebar}>
-
       { editMode 
       ? <ProfileDataForm  profile={profile} onSubmitForm={onSubmitForm}/>
       : <ProfileData 

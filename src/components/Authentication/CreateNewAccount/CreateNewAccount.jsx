@@ -6,7 +6,6 @@ import { maxLengthCreator, required } from '../../../utils/validators/validators
 import { Input } from '../../common/FormsControls/FormsControls';
 
 const maxLength50 = maxLengthCreator(50);
-
 const CreateNewAccount = (props) => {
   const onSubmit = (formData) => {
     props.createNewAccount(formData)
@@ -20,7 +19,6 @@ const CreateNewAccount = (props) => {
   )
 };
 export default CreateNewAccount;
-
 
 const CreateNewAccountForm = (props) => {
   return (

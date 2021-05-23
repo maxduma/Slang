@@ -7,19 +7,18 @@ import { reset } from "redux-form";
 import { sendMessageActionCreator } from '../../redux/dialogs-reducer';
 import Dialogs from './Dialogs';
 
-
 let mapStateToProps = (state) => {
-    return {
-        messagesPage: state.messagesPage
-    }
+  return {
+    messagesPage: state.messagesPage
+  }
 }
 let mapDispatchToProps = (dispatch) => {
-    return {
-        sendMessage: (newMessageBody) => {
-            dispatch(sendMessageActionCreator(newMessageBody));
-            dispatch(reset("dialogAddMessageForm"));
-        }
+  return {
+    sendMessage: (newMessageBody) => {
+      dispatch(sendMessageActionCreator(newMessageBody));
+      dispatch(reset("dialogAddMessageForm"));
     }
+  }
 }
 
 export default compose(

@@ -79,7 +79,6 @@ export const authAPI = {
 			return res
 	})
 	},
-  //////////// check it
 	logout()  {
 		return 	firebase.auth().signInWithEmailAndPassword()
 			.then(res => {
@@ -127,7 +126,6 @@ export const profileAPI = {
         },
       })
   },
-
 }
 
 export const myPostsAPI = {
@@ -169,7 +167,4 @@ export const myPostsAPI = {
 			likesUid:  newLikesUid
 		})
 	}
-
-
-
 }

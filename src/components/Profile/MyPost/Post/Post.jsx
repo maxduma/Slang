@@ -2,7 +2,6 @@ import React from 'react'
 import c from  './Post.module.css';
 import userPhotoMan from '../../../../assets/defaultMan.png';
 import userPhotoWoman from '../../../../assets/defaultWoman.png';
-
 import likeIcon from '../../../../assets/Like.png';
 import noLikeIcon from '../../../../assets/noLike.png';
 import deleteIcon from '../../../../assets/delete.png';
@@ -22,11 +21,8 @@ const Post = ({ isMyPage, addLike, removeLike, gender, deletePost, post: { postI
   const defaultPhoto = gender === 'male' ? userPhotoMan : userPhotoWoman;
     return (
       <div className={c.postWrapper}>
-
         <div className={c.postHeader}>
-
           <div className={c.postHeaderLeft}>
-            
             <NavLink  className={c.link} to={'/profile/' + ownerPostUid}>
             <div className={c.subLinkWrapper}>
                 <div>
@@ -38,14 +34,11 @@ const Post = ({ isMyPage, addLike, removeLike, gender, deletePost, post: { postI
                 </div>
             </div>
             </NavLink>
-            
             <div className={c.postHeaderData}>
               <div>{day} {month},   {year} </div> 
               <div>{hours}:{minutes}</div> 
             </div>
-
           </div>
-
           {
             isMyPage ?
             <div>
@@ -55,11 +48,9 @@ const Post = ({ isMyPage, addLike, removeLike, gender, deletePost, post: { postI
           </div> : null
           }
         </div>
-
         <div className={c.postBody}>
             {text}
         </div>
-
         <div className={c.postFooter}>
           <div className={c.like}>
             <div className={c.likeWrapper} >
@@ -72,7 +63,6 @@ const Post = ({ isMyPage, addLike, removeLike, gender, deletePost, post: { postI
             {likesUid.length - 1}
           </div>
         </div>
-
       </div>
     )
 }

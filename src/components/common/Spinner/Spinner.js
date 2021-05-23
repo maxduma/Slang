@@ -1,12 +1,12 @@
 import React from 'react';
-
+import c from './Spinner.module.css';
 import spinner from '../../../assets/Spinner.gif';
 
 const Spinner = () => {
     return (
-        <div>
-            <img src={spinner} />
-        </div>
+      <div className={c.spinnerWrapper}>
+        <img src={spinner} alt={spinner}/>
+      </div>
     )
 }
 

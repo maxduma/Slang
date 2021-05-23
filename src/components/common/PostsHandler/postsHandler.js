@@ -3,23 +3,23 @@ import { setLikeHome } from "../../../redux/home-reducer";
 import { getMonth, getZero } from "../../../utils/helpers/helpers";
 
 export const addPostFunction = (myUid, newPostText, addPostActionCreator, urlPhoto, name, surname) => {
-    const Data = new Date();
-    const postData = {
-      text: newPostText,
-      ownerPostUid: myUid,
-      ownerPostUrlPhoto: urlPhoto,
-      ownerPostName: name,
-      ownerPostSurname: surname,
-      postId: myUid + (Math.random() * 1000000000000000000),
-      isLike: false,
-      likesUid: [""],
-      data: {
-        day: getZero(Data.getDate()),
-        month: getMonth(Data.getMonth()),
-        year: getZero(Data.getFullYear()),
-        hours: getZero(Data.getHours()),
-        minutes: getZero(Data.getMinutes())
-      }
+  const Data = new Date();
+  const postData = {
+    text: newPostText,
+    ownerPostUid: myUid,
+    ownerPostUrlPhoto: urlPhoto,
+    ownerPostName: name,
+    ownerPostSurname: surname,
+    postId: myUid + (Math.random() * 1000000000000000000),
+    isLike: false,
+    likesUid: [""],
+    data: {
+      day: getZero(Data.getDate()),
+      month: getMonth(Data.getMonth()),
+      year: getZero(Data.getFullYear()),
+      hours: getZero(Data.getHours()),
+      minutes: getZero(Data.getMinutes())
+    }
   }
   //  patchPost
   myPostsAPI.patchPost(postData, myUid)

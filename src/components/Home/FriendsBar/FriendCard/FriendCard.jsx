@@ -1,11 +1,8 @@
 import React from 'react'
-// import Spinner from '../common/Spinner/Spinner';
 import c from  './FriendCard.module.css';
 import {NavLink} from 'react-router-dom';
 
 const FriendCard = ({f}) => {
-
-
   return (
     <div className={c.friendCardWrapper}>
       <NavLink className={c.link} to={'/profile/' + f.uid} >

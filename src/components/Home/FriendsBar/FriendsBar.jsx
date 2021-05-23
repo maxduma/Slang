@@ -1,16 +1,12 @@
 import React from 'react'
-// import Spinner from '../common/Spinner/Spinner';
 import c from  './FriendsBar.module.css';
 import FriendCard from './FriendCard/FriendCard';
 
 const FriendsBar = ({friends}) => {
-
-
   const friendsCards = 
   friends.map(f => {
    return  <FriendCard  f={f} key={f.uid}/>
   })
-
 
   return (
     <div className={c.friendsCardsWrapper}>
