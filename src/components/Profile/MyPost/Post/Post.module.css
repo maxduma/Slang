@@ -1,5 +1,5 @@
  .postWrapper {
-    margin: 20px 0;
+    margin: 40px 0;
     padding: 10px;
     word-break: break-all;
     background-color: #212325;
@@ -13,16 +13,36 @@
   padding: 3px;
   background-color: #282a2c;
   border-radius: 20px;
+  color: #e3e5ec;
+}
+
+.link {
+  color: #e3e5ec;
+  text-decoration: none;
 }
 
 .postHeaderLeft {
   display: flex;
   justify-content: space-between;
-  width: 150px;
+}
+
+.subLinkWrapper {
+  display: flex;
+}
+
+.postFullNameOwner {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.postOwnerName {
+  margin-right: 5px;
 }
 
 .postHeaderData {
-  margin-left: 7px;
+  margin-left: 17px;
   vertical-align: center;
   color: #e3e5ec;
   font-size: 12px;

@@ -4,10 +4,9 @@ export const required = value => {
 }
 
 export const emptyField = value => {
-  if (!value)   return 'empty Field';
+  if (!value)   return ' Field is empty';
   return undefined
 }
-
 
 export const maxLengthCreator = (maxLength) => (value) => {
   if ( value ) {

@@ -15,8 +15,17 @@
 }
 
 .ava {
-    max-width: 200px;
-    border-radius: 10%;
+  max-width: 200px;
+  border-radius: 10%;
+}
+
+.avaBtn {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.avaBtn:hover {
+  transform: translateX(3px) rotate(3deg);
 }
 
 .statusWrapper {
@@ -38,7 +47,6 @@
   display:  flex;
 }
 
-
 .flex {
   display:  flex;
 }
@@ -53,4 +61,29 @@
   border-radius: 20px;
   padding: 10px;
   margin: 20px 0;
+}
+
+.changePhotoBtn {
+  margin-top: 5px;
+  background-color: #2d88ff;
+  border-radius: 10px;
+  border: 0;
+  color: #e3e5ec;
+  height: 30px;
+  width: 100px;
+  cursor: pointer;
+}
+
+.changePhotoBtn:Hover {
+  background-color: #5a97e7;
+}
+
+.changePhotoBtn:focus {
+  outline: none;
+}
+
+.tips {
+  font-size: 12px;
+  font-weight: 400;
+  color: #e3e5ec;
 }

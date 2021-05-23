@@ -7,16 +7,27 @@ import Spinner from './components/common/Spinner/Spinner';
 import { usersAPI } from './api/api';
 
 class AppContainer extends React.Component {
+
+  catchAllUnhandledErrors = (promiseRejectionEvent) => {
+    console.log(promiseRejectionEvent);
+  }
+
   componentDidMount() {
     if (!this.props.isAuth && localStorage.getItem('CurrentUserData')) {
       const data = JSON.parse(localStorage.getItem('CurrentUserData'));
       usersAPI.getUser(data.uid)
       .then(res => {
-        this.props.initializedApp(res.name, res.surname, res.location, res.gender, res.uid, res.email, res.urlPhoto, res.status, res.following, res.followers, res.iLikePostsUids)
+        this.props.initializedApp(res.name, res.surname, res.location, res.personalInformation, res.gender, res.uid, res.email, res.urlPhoto, res.status, res.following, res.followers, res.iLikePostsUids)
       })
     } else {
       this.props.initializedSuccess()
     }
+
+    window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors);
   }
 
   render() {

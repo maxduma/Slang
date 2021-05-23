@@ -1,0 +1,35 @@
+.friendCardWrapper {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 10px;
+  background-color: #282a2c;
+}
+
+.blockWrapper {
+  display:  flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.friendCardImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  margin-right: 5px;
+}
+
+.friendCardName {
+  margin-right: 3px;
+  color: #e3e5ec;
+  font-size: 16px;
+}
+
+.friendCardSurname {
+  color: #e3e5ec;
+  font-size: 16px;
+}
+
+.link {
+  color: #e3e5ec;
+  text-decoration: none;
+}

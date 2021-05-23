@@ -6,23 +6,17 @@ import userPhotoWoman from '../../../../assets/defaultWoman.png';
 import likeIcon from '../../../../assets/Like.png';
 import noLikeIcon from '../../../../assets/noLike.png';
 import deleteIcon from '../../../../assets/delete.png';
+import { NavLink } from 'react-router-dom';
 
-
-
-const Post = ({post, isMyPage, addLike, removeLike, urlPhoto, gender, deletePost, post: { id, isLike, likesUid, text, data: {day, month, year, hours, minutes}}}) => {
-
-  // console.log("POST POST", post)
-
+const Post = ({ isMyPage, addLike, removeLike, gender, deletePost, post: { postId, ownerPostUid, ownerPostName, ownerPostSurname, ownerPostUrlPhoto, isLike, likesUid, text, data: {day, month, year, hours, minutes}}}) => {
   const deletePostBtn = () => {
-    deletePost(id)
+    deletePost(postId)
   }
-
   const addLikeBtn = () => {
-    addLike(id)
+    addLike(postId, ownerPostUid)
   }
-
   const removeLikeBtn = () => {
-    removeLike(id)
+    removeLike(postId, ownerPostUid)
   }
 
   const defaultPhoto = gender === 'male' ? userPhotoMan : userPhotoWoman;
@@ -30,15 +24,28 @@ const Post = ({post, isMyPage, addLike, removeLike, urlPhoto, gender, deletePost
       <div className={c.postWrapper}>
 
         <div className={c.postHeader}>
+
           <div className={c.postHeaderLeft}>
-            <div >
-              <img className={c.img} src={urlPhoto ? urlPhoto : defaultPhoto} alt=""/>
+            
+            <NavLink  className={c.link} to={'/profile/' + ownerPostUid}>
+            <div className={c.subLinkWrapper}>
+                <div>
+                  <img className={c.img} src={ownerPostUrlPhoto ? ownerPostUrlPhoto : defaultPhoto} alt=""/>
+                </div>
+                <div className={c.postFullNameOwner}>
+                    <div className={c.postOwnerName}>{ownerPostName}</div>
+                    <div>{ownerPostSurname}</div>
+                </div>
             </div>
+            </NavLink>
+            
             <div className={c.postHeaderData}>
               <div>{day} {month},   {year} </div> 
               <div>{hours}:{minutes}</div> 
             </div>
+
           </div>
+
           {
             isMyPage ?
             <div>

@@ -8,6 +8,9 @@ const Navbar = () => {
         <nav className={c.navWrapper}>
 
             <div className={c.item}>
+                 <NavLink to="/home" activeClassName={c.active}>Home</NavLink> 
+            </div>
+            <div className={c.item}>
                  <NavLink to="/profile" activeClassName={c.active}>Profile</NavLink> 
             </div>
             <div className={c.item}>

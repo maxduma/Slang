@@ -2,13 +2,11 @@ import React from "react";
 import c from "./SingIn.module.css";
 import { Field, reduxForm } from "redux-form";
 import { Input } from "../../common/FormsControls/FormsControls";
-import {
-  maxLengthCreator,
-  required,
-} from "../../../utils/validators/validators";
+import { maxLengthCreator, required } from "../../../utils/validators/validators";
 import style from "../../common/FormsControls/FormsControls.module.css";
 
 const SingIn = (props) => {
+  
   const onSubmit = (formData) => {
     props.singIn(formData);
   };

@@ -16,6 +16,11 @@ export const usersAPI = {
 			    uid: uid, 
 			    gender: gender,
 			    location: {city: city, country: country},
+          personalInformation: {
+            job: '',
+            education: '',
+            hobby: '',
+          },
 			    followed: false,
 					urlPhoto: '',
 			    status: '',
@@ -91,8 +96,38 @@ export const profileAPI = {
     return instance.patch(`${myUid}/.json`, {
       status: newStatus
     })
+  },
+  // savePhoto(photoFile) {
+  //   const formData = new FormData();
+  //   formData.append("image", photoFile);
 
-  }
+  //   return instance.post('profile/photo', formData, {
+  //     headers: {
+  //       'Content-Type': 'multipart/form-data'
+  //     }
+  //   });
+  // },
+  changeUrlPhoto(urlPhoto, myUid) {
+      return instance.patch(`${myUid}/.json`, {
+        urlPhoto: urlPhoto
+      })
+  },
+  changeProfileData(formData, myUid) {
+      return instance.patch(`${myUid}/.json`, {
+        name: formData.name,
+        surname: formData.surname,
+        location: {
+          country: formData.country,
+          city: formData.city
+        },
+        personalInformation: {
+          job: formData.job,
+          education: formData.education,
+          hobby: formData.hobby,
+        },
+      })
+  },
+
 }
 
 export const myPostsAPI = {
@@ -112,7 +147,12 @@ export const myPostsAPI = {
       isLike: postData.isLike,
       likesUid: postData.likesUid,
       data: postData.data,
-      id: postData.postId
+      uidPostOwner: postData.uidPostOwner,
+      postId: postData.postId,
+      ownerPostUid: postData.ownerPostUid,
+      ownerPostUrlPhoto: postData.ownerPostUrlPhoto,
+      ownerPostName: postData.ownerPostName,
+      ownerPostSurname: postData.ownerPostSurname,
     })
   },
   deletePost(postId, myUid) {

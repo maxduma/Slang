@@ -14,12 +14,17 @@ const initialState = {
       country: '',
       city: ''
     },
+    personalInformation: {
+      job: '',
+      education: '',
+      hobby: '',
+    },
     urlPhoto: '',
     gender: '',
     uid: null,
     email: '',
     status: '',
-    isAuth: false,  
+    isAuth: false,
     following: [''],
     followers: [''],
     iLikePostsUids: [''],
@@ -40,6 +45,12 @@ const authReducer = (state = initialState, action) => {
             ...state.currentUserData.location,
             country:  action.data.location.country,
             city:  action.data.location.city,
+          },
+          personalInformation: {
+            ...state.currentUserData.personalInformation,
+            job: action.data.personalInformation.job,
+            education: action.data.personalInformation.education,
+            hobby: action.data.personalInformation.hobby,
           },
           gender: action.data.gender,
           uid: action.data.uid,
@@ -73,7 +84,7 @@ const authReducer = (state = initialState, action) => {
   }
 }
 
-export const setAuthCurrentUserData = ( name, surname, location, gender, uid, email, urlPhoto, status, isAuth, following, followers, iLikePostsUids ) => ({type: SET_AUTH_CURRENT_USER_DATA, data: { name, surname, location, gender, uid, email, urlPhoto, status, isAuth, following, followers, iLikePostsUids }});
+export const setAuthCurrentUserData = ( name, surname, location, personalInformation, gender, uid, email, urlPhoto, status, isAuth, following, followers, iLikePostsUids ) => ({type: SET_AUTH_CURRENT_USER_DATA, data: { name, surname, location, personalInformation, gender, uid, email, urlPhoto, status, isAuth, following, followers, iLikePostsUids }});
 export const setFollowing = ( uidListFollowing ) => ({type: SET_CURRENT_USER_DATA_FOLLOWING, uidListFollowing });
 export const setFollowers = ( uidListFollowers ) => ({type: SET_CURRENT_USER_DATA_FOLLOWERS, uidListFollowers });
 
@@ -87,7 +98,7 @@ export const createNewAccountThunk = (formData) => (dispatch) => {
     usersAPI.putNewUser(uid, formData.name, formData.surname, email, formData.gender, formData.city, formData.country)
     // set data to state
     .then(data => {
-      dispatch(setAuthCurrentUserData(data.name, data.surname, data.location, data.gender, data.uid, data.email, data.urlPhoto, data.status, true, data.following, data.followers, data.iLikePostsUids));
+      dispatch(setAuthCurrentUserData(data.name, data.surname, data.location, data.personalInformation, data.gender, data.uid, data.email, data.urlPhoto, data.status, true, data.following, data.followers, data.iLikePostsUids));
       // set localStorage
       const CurrentUserData = {
         name: data.name,
@@ -95,6 +106,11 @@ export const createNewAccountThunk = (formData) => (dispatch) => {
         location: {
           country: data.location.country,
           city: data.location.city
+        },
+        personalInformation: {
+          job: data.personalInformation.job,
+          education: data.personalInformation.education,
+          hobby: data.personalInformation.hobby,
         },
         urlPhoto: data.urlPhoto,
         gender: data.gender,
@@ -111,7 +127,7 @@ export const createNewAccountThunk = (formData) => (dispatch) => {
     })
   })
   .catch(error => {
-    console.log('ERROR !!!!!!!!')
+    console.log('ERROR !!!')
     dispatch(stopSubmit("CreateNewAccountForm", {_error: error.message}))
   })
 }
@@ -123,7 +139,7 @@ export const setAuthCurrentUser = (formData) => (dispatch) => {
     usersAPI.getUser(res.user.uid)
     .then(user => {
       // set user to state
-      dispatch(setAuthCurrentUserData(user.name, user.surname, user.location, user.gender, user.uid, user.email, user.urlPhoto, user.status, true,   user.following,  user.followers, user.iLikePostsUids));
+      dispatch(setAuthCurrentUserData(user.name, user.surname, user.location, user.personalInformation, user.gender, user.uid, user.email, user.urlPhoto, user.status, true,   user.following,  user.followers, user.iLikePostsUids));
       // set localStorage
       const CurrentUserData = {
         name: user.name,
@@ -131,6 +147,11 @@ export const setAuthCurrentUser = (formData) => (dispatch) => {
         location: {
           country: user.location.country,
           city: user.location.city
+        },
+        personalInformation: {
+          job: user.personalInformation.job,
+          education: user.personalInformation.education,
+          hobby: user.personalInformation.hobby,
         },
         urlPhoto: user.urlPhoto,
         gender: user.gender,

@@ -11,12 +11,12 @@ const FollowCard = ({urlPhoto, name, surname, gender, uid}) => {
   const defaultPhoto = gender === 'male' ? userPhotoMan : userPhotoWoman;
   return (
     <div>
-      <NavLink to={'/profile/' + uid }>
+      <NavLink className={c.link} to={'/profile/' + uid }>
         <div className={c.followWrapper}>
             <div >
               <img className={c.img} src={urlPhoto ? urlPhoto : defaultPhoto} alt={c.name} />
             </div>
-            <div className={c.fullnameWrapper}>
+            <div className={c.fullNameWrapper}>
               <div className={c.name}>{name}</div>
               <div>{surname}</div>
             </div>

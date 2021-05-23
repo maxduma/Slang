@@ -2,26 +2,22 @@ import React from "react";
 import { reduxForm, Field } from "redux-form";
 import Post from "./Post/Post";
 import c from "./MyPosts.module.css";
-import {
-  maxLengthCreator
-} from "../../../utils/validators/validators";
+import {maxLengthCreator} from "../../../utils/validators/validators";
 import { Textarea } from "../../common/FormsControls/FormsControls";
 
-const MyPosts = React.memo(({posts, urlPhoto, deletePost, myUid, addPost, currentProfileUid, addLike, removeLike }) => {
+const MyPosts = React.memo(({posts, isHomePage, urlPhoto, deletePost, myUid, addPost, currentProfileUid, addLike, removeLike }) => {
 
-  const isMyPage = myUid === currentProfileUid;
+  const isMyPage =  isHomePage ? false : myUid === currentProfileUid;
 
   const postsElements = 
-   [...posts]
-    .reverse()
-    .map((post) => (
-    <Post post={post} urlPhoto={urlPhoto}  key={post.id} deletePost={deletePost} isMyPage={isMyPage} addLike={addLike} removeLike={removeLike} />
-  ));
-
-
+  [...posts]
+  .reverse()
+  .map((post) => {
+    return <Post post={post} key={post.postId} deletePost={deletePost} isMyPage={isMyPage} addLike={addLike} removeLike={removeLike} /> 
+    });
 
   const onAddPost = (values) => {
-    addPost(values);
+    addPost(values, urlPhoto);
   }
 
   return (
@@ -40,6 +36,7 @@ const MyPosts = React.memo(({posts, urlPhoto, deletePost, myUid, addPost, curren
 });
 
 
+
 const maxLength1000 = maxLengthCreator(1000);
 
 const AddNewPostForm = (props) => {
@@ -54,7 +51,7 @@ const AddNewPostForm = (props) => {
         />
       </div>
       <div>
-        <button className={c.btn}>Add Post</button>
+        <button className={c.AddPostBtn}>Add Post</button>
       </div>
     </form>
   );
@@ -62,7 +59,5 @@ const AddNewPostForm = (props) => {
 const AddNewPostFormRedux = reduxForm({ form: "ProfileAddNewPostForm" })(
   AddNewPostForm
 );
-
-
 
 export default MyPosts;
