@@ -8,8 +8,8 @@ const instance = axios.create({
 
 // get users
 export const usersAPI = {
-	putNewUser(uid, name, surname, email, gender, city, country) {
-		return instance.put( `${uid}.json`, {
+ putNewUser(uid, name, surname, email, gender, city, country) {
+	return instance.put( `${uid}.json`, {
       name: name,
       surname: surname,
       email: email,
@@ -32,25 +32,25 @@ export const usersAPI = {
 				return response.data});
 	},
 	getAllUsers()  {
-		return instance.get( `.json`)
-		.then(response => {
-		return response.data});
+    return instance.get( `.json`)
+    .then(response => {
+    return response.data});
 	},
 	getUser(userId) {
-		return instance.get( `${userId}/.json`)
-		.then(response => {
-		return response.data});
+    return instance.get( `${userId}/.json`)
+    .then(response => {
+    return response.data});
 	},
 	patchNewFollowingUID(uid, newFollowing) {
-		return instance.patch( `${uid}/.json`,
-		{
-			following:  newFollowing
-		})
+    return instance.patch( `${uid}/.json`,
+    {
+      following:  newFollowing
+    })
 	},
 	patchNewFollowersUID(uid, newFollowers) {
 		return instance.patch( `${uid}/.json`,
 		{
-			followers:  newFollowers
+		 followers:  newFollowers
 		})
 	},
   getILikePostsUids(uid) {
