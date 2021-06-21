@@ -10,23 +10,23 @@ const instance = axios.create({
 export const usersAPI = {
 	putNewUser(uid, name, surname, email, gender, city, country) {
 		return instance.put( `${uid}.json`, {
-			    name: name,
-			    surname: surname,
-			    email: email,
-			    uid: uid, 
-			    gender: gender,
-			    location: {city: city, country: country},
-          personalInformation: {
-            job: '',
-            education: '',
-            hobby: '',
-          },
-			    followed: false,
-					urlPhoto: '',
-			    status: '',
-			    following: [''],
-			    followers: [''],
-          iLikePostsUids: [''],
+      name: name,
+      surname: surname,
+      email: email,
+      uid: uid, 
+      gender: gender,
+      location: {city: city, country: country},
+      personalInformation: {
+        job: '',
+        education: '',
+        hobby: '',
+      },
+      followed: false,
+      urlPhoto: '',
+      status: '',
+      following: [''],
+      followers: [''],
+      iLikePostsUids: [''],
 			})
 			.then(response => {
 				return response.data});
