@@ -15,34 +15,28 @@ import ProfileDataForm from './ProfileDataForm/ProfileDataForm';
 const Profile = ({ posts, changeUrlPhotoThunk, changeProfileDataForm, isOwner, profile, myUid, profile: { gender, following, followers, uid, status, urlPhoto }, patchStatus  }) => {
   const [avaChangeActive, setAvaChangeActive] = useState(false);
   const [editMode, setEditMode] = useState(false);
-
   if (!profile) {
     return <Spinner />
   }
-
   const avaChangeActiveBtn = () => {
     avaChangeActive ?
     setAvaChangeActive(false) :   setAvaChangeActive(true)
   }
-
   const onSubmit = (formData) => {
     changeUrlPhotoThunk(formData.urlPhoto, myUid);
     setAvaChangeActive(false);
   };
-
   const onSubmitForm = (formData) => {
     console.log("formData", formData)
      changeProfileDataForm(formData)
       setEditMode(false);
   };
-
-
   const defaultPhoto = gender === 'male' ? userPhotoMan : userPhotoWoman;
-  
+
   return (
     <div>
       <div>
-        <img  className={c.wallpaper}  src="https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_960_720.jpg" alt=""/>
+        <img className={c.wallpaper} src="https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_960_720.jpg" alt=""/>
       </div>
       <div className={c.flex}>
         <div className={c.avaWrapper}>
@@ -88,11 +82,10 @@ const Profile = ({ posts, changeUrlPhotoThunk, changeProfileDataForm, isOwner, p
       </div>
     </div>
   )
-}
-
+};
 export default Profile;
-const maxLength300 = maxLengthCreator(300);
 
+const maxLength300 = maxLengthCreator(300);
 const urlPhotoForm = (props) => {
   return (
     <>
@@ -112,5 +105,4 @@ const urlPhotoForm = (props) => {
     </>
   );
 };
-
 const UrlPhotoReduxForm = reduxForm({ form: "urlPhotoForm" })(urlPhotoForm);

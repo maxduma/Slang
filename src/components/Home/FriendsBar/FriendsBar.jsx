@@ -16,6 +16,5 @@ const FriendsBar = ({friends}) => {
       </div>
     </div>
   )
-}
-
+};
 export default FriendsBar;

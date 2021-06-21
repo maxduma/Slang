@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-
 import FollowCard from './FollowCard';
 import {usersAPI} from '../../../../api/api';
 
@@ -9,7 +8,6 @@ const FollowCardContainer = (props) => {
   const [surname, setSurname] = useState();
   const [gender, setGender] = useState();
   const [uid, setUid] = useState();
-
   useEffect(() => {
     usersAPI.getUser(props.uid)
     .then(u => {
@@ -27,6 +25,5 @@ const FollowCardContainer = (props) => {
       <FollowCard  urlPhoto={urlPhoto} name={name} surname={surname} gender={gender} uid={uid} />
     </div>
   )
-}
-
+};
 export default FollowCardContainer;

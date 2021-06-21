@@ -11,7 +11,7 @@ const ProfileData = ({profile, isOwner, goToEditMode, profile: {name, personalIn
   if (!profile) {
     return <Spinner />
   }
-  
+
   return (
     <div className={c.profileDataWrapper}>
       {isOwner && 
@@ -50,6 +50,5 @@ const ProfileData = ({profile, isOwner, goToEditMode, profile: {name, personalIn
       }
     </div>
   )
-}
-
+};
 export default ProfileData;

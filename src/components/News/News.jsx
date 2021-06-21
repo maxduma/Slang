@@ -6,5 +6,4 @@ const News = (props) => {
     <div className={c.wrapper}>News</div>
   )
 };
-
 export default News;

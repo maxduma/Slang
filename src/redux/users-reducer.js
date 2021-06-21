@@ -110,6 +110,5 @@ export const getUsersThunkCreator = (myUid, currentPage, pageSize, following, pa
     dispatch(toggleIsFetching(false));  // Spinner
   })
   }
-}
-
+};
 export default usersReducer;

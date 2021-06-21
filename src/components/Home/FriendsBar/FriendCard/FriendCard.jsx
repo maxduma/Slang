@@ -14,6 +14,5 @@ const FriendCard = ({f}) => {
       </NavLink>
     </div>
   )
-}
-
+};
 export default FriendCard;

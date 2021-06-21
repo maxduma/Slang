@@ -13,15 +13,12 @@ class UsersContainer extends React.Component {
 	componentDidMount() {
 		this.props.getUsersThunkCreator(this.props.myUid, this.props.currentPage, this.props.pageSize, this.props.following, 1);
 	}
-
 	onPageChanged = (pageNumber) => {
 		this.props.getUsersThunkCreator(this.props.myUid, pageNumber, this.props.pageSize, this.props.following, pageNumber);
 	}
-
 	addFollow = (uid) => {
 		// set IsFollowing for disabled button
 		this.props.toggleIsFollowingProgress(true, uid);
-
 		//1. update database, my data
 		usersAPI.getUser(this.props.myUid)
 		.then(data => {
@@ -30,18 +27,15 @@ class UsersContainer extends React.Component {
 				const a = newFollowing.some( id => {
 					return id === uid
 				})
-
       // uid !== this.props.myUid  - do not follow for myself
       if (!a && uid !== this.props.myUid) {
         newFollowing.push(uid)
       }
-
 			this.props.setFollowing(newFollowing);
 		})
 		.then(data => {
 			usersAPI.patchNewFollowingUID(this.props.myUid, this.props.following)
 		})
-
 	// 2. set into another user data,  I follow him
 	  usersAPI.getUser(uid)
 		.then(data => {
@@ -50,12 +44,10 @@ class UsersContainer extends React.Component {
         const a = newFollowers.some( id => {
           return id === this.props.myUid
         })
-
         // uid !== this.props.myUid  - do not follow for myself
         if (!a && uid !== this.props.myUid) {
           newFollowers.push(this.props.myUid)
         }
-
 			this.props.setNotMyFollowers(newFollowers);
 		})
 		.then(data => {
@@ -70,7 +62,6 @@ class UsersContainer extends React.Component {
 	removeFollow = (uid) => {
 		// set IsFollowing for disabled button
 		this.props.toggleIsFollowingProgress(true, uid);
-
 		//1. update database, my data
 		usersAPI.getUser(this.props.myUid)
 		.then(data => {
@@ -79,19 +70,16 @@ class UsersContainer extends React.Component {
 				let a = newFollowing.some( id => {
 					return id === uid
 				})
-
 				if (a) {
 					const index = newFollowing.indexOf(uid)
 					newFollowing.splice(index, 1)
 				}
-
 			// set new following
 			this.props.setFollowing(newFollowing);
 		})
 		.then(data => {
 			usersAPI.patchNewFollowingUID(this.props.myUid, this.props.following)
 		})
-
 
 		// 2. set into another user data,  I unfollow him
 		usersAPI.getUser(uid)
@@ -136,7 +124,7 @@ render() {
 			/>
 	</>
  }
-}
+};
 
 const mapStateToProps = (state) => {
 	return {
@@ -151,9 +139,9 @@ const mapStateToProps = (state) => {
 		isFollowingInProgress: getIsFollowingInProgress(state),
     portionSize: getPortionSize(state)
 	}
-}
+};
 
 export default compose(
   withAuthRedirect,
   connect(mapStateToProps, { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching, setFollowing, setNotMyFollowers, toggleIsFollowingProgress,  getUsersThunkCreator })
-)(UsersContainer)
+)(UsersContainer);

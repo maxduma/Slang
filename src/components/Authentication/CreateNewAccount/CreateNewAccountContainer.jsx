@@ -1,16 +1,13 @@
 import React, { Component } from "react";
 import CreateNewAccount from "./CreateNewAccount";
 import { connect } from "react-redux";
-
 import { createNewAccountThunk } from "../../../redux/auth-reducer";
-// import { usersAPI, authAPI } from '../../../api/api';
 import { Redirect } from "react-router";
 
 class LoginContainer extends Component {
   createNewAccount(formData) {
     this.createNewAccountThunk(formData);
   }
-
   render() {
     if (this.props.isAuth) {
       return <Redirect to={"/profile"} />;

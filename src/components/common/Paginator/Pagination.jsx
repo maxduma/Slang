@@ -29,6 +29,5 @@ const Pagination = ({totalItemsCount, pageSize, currentPage, onPageChanged, port
         <button className={c.btnPortion} onClick={() => {setPortionNumber(portionNumber + 1)}}>next</button>}
     </div>
   )
-}
-
+};
 export default Pagination;

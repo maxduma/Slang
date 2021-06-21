@@ -6,5 +6,4 @@ const Settings = (props) => {
     <div className={c.wrapper}>Settings</div>
   )
 };
-
 export default Settings;

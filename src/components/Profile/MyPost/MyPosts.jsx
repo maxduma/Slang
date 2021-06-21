@@ -4,8 +4,10 @@ import Post from "./Post/Post";
 import c from "./MyPosts.module.css";
 import {maxLengthCreator} from "../../../utils/validators/validators";
 import { Textarea } from "../../common/FormsControls/FormsControls";
+import userPhotoMan from '../../../assets/defaultMan.png';
+import userPhotoWoman from '../../../assets/defaultWoman.png';
 
-const MyPosts = React.memo(({posts, isHomePage, urlPhoto, deletePost, myUid, addPost, currentProfileUid, addLike, removeLike }) => {
+const MyPosts = React.memo(({posts, authGender, isHomePage, urlPhoto, deletePost, myUid, addPost, currentProfileUid, addLike, removeLike }) => {
   const isMyPage =  isHomePage ? false : myUid === currentProfileUid;
   const postsElements = 
   [...posts]
@@ -13,9 +15,13 @@ const MyPosts = React.memo(({posts, isHomePage, urlPhoto, deletePost, myUid, add
   .map((post) => {
     return <Post post={post} key={post.postId} deletePost={deletePost} isMyPage={isMyPage} addLike={addLike} removeLike={removeLike} /> 
     });
-
   const onAddPost = (values) => {
-    addPost(values, urlPhoto);
+    if (urlPhoto.length === 0) {
+      const defaultPhoto = authGender === 'male' ? userPhotoMan : userPhotoWoman;
+      addPost(values, defaultPhoto);
+    } else {
+      addPost(values, urlPhoto);
+    }
   }
 
   return (
@@ -54,5 +60,4 @@ const AddNewPostForm = (props) => {
 const AddNewPostFormRedux = reduxForm({ form: "ProfileAddNewPostForm" })(
   AddNewPostForm
 );
-
 export default MyPosts;

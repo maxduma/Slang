@@ -21,5 +21,5 @@ const AddMessageForm = (props) => {
     </div>
   </form>
   )
-}
+};
 export const AddMessageFormRedux = reduxForm({form: 'dialogAddMessageForm'})(AddMessageForm);

@@ -19,6 +19,5 @@ const DialogItem = ({id, name, surname, gender, uplPhoto}) => {
       </NavLink> 
     </div>
   )
-}
-
+};
 export default DialogItem;

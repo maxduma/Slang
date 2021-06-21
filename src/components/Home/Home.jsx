@@ -7,7 +7,7 @@ import FriendsBar from './FriendsBar/FriendsBar';
 const Home = ({allPosts, friends, allPostsIsFetching, friendsIsFetching}) => {
   return (
     <div>
-      <div>Home</div>
+      { friends.length > 0 ? <div className={c.title}>Home</div> : <div className={c.title}>Start following someone to form your home page</div> }
       <div className={c.blockWrapper}>
         <div className={c.postsContainer}>
          { allPostsIsFetching ? <Spinner /> : <MyPostsContainer posts={allPosts} /> }
@@ -18,6 +18,5 @@ const Home = ({allPosts, friends, allPostsIsFetching, friendsIsFetching}) => {
       </div>
     </div>
   )
-}
-
+};
 export default Home;

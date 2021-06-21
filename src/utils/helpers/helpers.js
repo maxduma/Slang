@@ -5,7 +5,7 @@ export const getZero = (num) => {
   } else {
       return `${num}`;
   }
-}
+};
 
 export const getMonth = (month) => {
   switch(month) {
@@ -23,4 +23,4 @@ export const getMonth = (month) => {
     case 11: return 'December'
     default: return null;
   }
-}
+};

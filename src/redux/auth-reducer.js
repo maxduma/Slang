@@ -167,6 +167,5 @@ export const setAuthCurrentUser = (formData) => (dispatch) => {
   .catch(error => {
     dispatch(stopSubmit("SingIn", {_error: error.message}));
   });
-}
-
+};
 export default authReducer;

@@ -13,6 +13,5 @@ const FollowBlock = ({followList}) => {
       }
     </div>
   )
-}
-
+};
 export default  FollowBlock;

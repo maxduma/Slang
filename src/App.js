@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import { Redirect, Route, Switch} from 'react-router-dom';
-
 import HeaderContainer from './components/Header/HeaderContainer';
 import Navbar from './components/Navbar/Navbar';
 import ProfileContainer from './components/Profile/ProfileContainer';
@@ -13,7 +12,6 @@ import Login from './components/Login/Login';
 import { withSuspense } from './hoc/withSuspense';
 import NotFound from './components/NotFound/NotFound';
 import HomeContainer from './components/Home/HomeContainer';
-
 const News = React.lazy(() => import('./components/News/News'));
 const Music = React.lazy(() => import('./components/Music/Music'));
 const Settings = React.lazy(() => import('./components/Settings/Settings'));
@@ -41,6 +39,5 @@ const App = () => {
       </div>
     </div>
   );
-}
-
+};
 export default App;

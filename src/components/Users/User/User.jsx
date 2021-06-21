@@ -34,6 +34,5 @@ const User = ({user, isFollowingInProgress, followFun, unfollowFun}) => {
       }
     </div>
   )
-}
-
+};
 export default User;

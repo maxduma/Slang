@@ -9,7 +9,6 @@ const SingIn = (props) => {
   const onSubmit = (formData) => {
     props.singIn(formData);
   };
-
   return (
     <div className={c.SingInWrapper}>
       <h1>Sing In</h1>
@@ -57,5 +56,4 @@ const SingInForm = (props) => {
     </>
   );
 };
-
 const SingInReduxForm = reduxForm({ form: "SingIn" })(SingInForm);

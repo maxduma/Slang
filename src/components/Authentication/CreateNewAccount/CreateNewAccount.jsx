@@ -10,7 +10,6 @@ const CreateNewAccount = (props) => {
   const onSubmit = (formData) => {
     props.createNewAccount(formData)
   }
-
   return (
       <div  className={c.wrapper}>
           <h1>Create New Account</h1>

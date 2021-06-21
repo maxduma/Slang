@@ -207,6 +207,5 @@ export const changeProfileData = (formData, myUid, myILikePostsUids) => async (d
       dispatch(stopSubmit("editProfile", {_error: response.data.message})); //dnc
       return Promise.reject(response.data.message);
     }
-}
-
+};
 export default profileReducer;

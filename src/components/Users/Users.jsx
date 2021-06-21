@@ -7,7 +7,6 @@ const Users = ({users, totalUsersCount, pageSize, currentPage, follow, addFollow
     follow(uid)
     addFollow(uid)
   }
-
   const unfollowFun = (uid) => {
     unfollow(uid)
     removeFollow(uid)
@@ -28,6 +27,5 @@ const Users = ({users, totalUsersCount, pageSize, currentPage, follow, addFollow
       }
     </div>
   )
-}
-
+};
 export default Users;

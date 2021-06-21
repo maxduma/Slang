@@ -28,7 +28,7 @@ ReactDOM.render(
     </HashRouter>
   </React.StrictMode>,
     document.getElementById('root')
-); 
+);
 
 
 

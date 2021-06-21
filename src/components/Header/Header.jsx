@@ -1,6 +1,5 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom';
-
 import c from './Header.module.css';
 import userPhotoMan from '../../assets/defaultMan.png';
 import userPhotoWoman from '../../assets/defaultWoman.png';
@@ -42,6 +41,5 @@ const Header = (props) => {
       </div>
     </header>
   )
-}
-
+};
 export default Header;

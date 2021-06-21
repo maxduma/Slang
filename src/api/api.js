@@ -64,7 +64,7 @@ export const usersAPI = {
 			iLikePostsUids: newILikePostsUids
 		})
 	},
-}
+};
 
 export const authAPI = {
 	createNewAccount(email, password)  {
@@ -85,7 +85,7 @@ export const authAPI = {
 			return res.user
 	})
 	}
-}
+};
 
 export const profileAPI = {
   getStatus(userId) {
@@ -126,7 +126,7 @@ export const profileAPI = {
         },
       })
   },
-}
+};
 
 export const myPostsAPI = {
   getPosts(userId) {
@@ -167,4 +167,4 @@ export const myPostsAPI = {
 			likesUid:  newLikesUid
 		})
 	}
-}
+};

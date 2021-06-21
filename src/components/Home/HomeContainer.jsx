@@ -35,7 +35,6 @@ class HomeContainer extends React.Component {
       this.props.setPosts(allPosts);
       this.props.setAllPostIsFetching(false);
     })
-
     //set Friends
     this.props.setFriendsIsFetching(true);
     Promise.all(this.props.following.filter(id => id !== "").map(u => usersAPI.getUser(u)))
@@ -43,7 +42,6 @@ class HomeContainer extends React.Component {
       this.props.setAllFriends(res);
       this.props.setFriendsIsFetching(false);
     })
-
   }
 
   render() {
@@ -59,9 +57,9 @@ class HomeContainer extends React.Component {
       </div>
     )
   }
-}
+};
 
-let mapStateToProps = (state) => ({
+const mapStateToProps = (state) => ({
   myUid: state.auth.currentUserData.uid,
   myILikePostsUids: state.auth.currentUserData.iLikePostsUids,
   following:  state.auth.currentUserData.following,
@@ -74,4 +72,4 @@ let mapStateToProps = (state) => ({
 export default compose(
   withAuthRedirect,
   connect(mapStateToProps, {setPosts, setAllFriends, setAllPostIsFetching, setFriendsIsFetching}),
-)(HomeContainer)
+)(HomeContainer);

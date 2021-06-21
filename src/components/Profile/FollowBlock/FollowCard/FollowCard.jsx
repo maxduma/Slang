@@ -21,6 +21,5 @@ const FollowCard = ({urlPhoto, name, surname, gender, uid}) => {
       </NavLink>
     </div>
   )
-}
-
+};
 export default FollowCard;

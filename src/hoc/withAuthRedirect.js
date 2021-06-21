@@ -4,7 +4,7 @@ import { Redirect } from 'react-router';
 
 const mapStateToPropsForRedirect = (state) => ({
   isAuth: state.auth.currentUserData.isAuth
-})
+});
 
 export const withAuthRedirect = ( Component ) => {
   class RedirectComponent extends React.Component {
@@ -15,10 +15,8 @@ export const withAuthRedirect = ( Component ) => {
       return <Component {...this.props} />
     }
   }
-
   const ConnectedAuthRedirectComponent = connect(mapStateToPropsForRedirect)(RedirectComponent);
-
   return ConnectedAuthRedirectComponent;
-}
+};
 
 

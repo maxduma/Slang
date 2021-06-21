@@ -10,7 +10,6 @@ class AppContainer extends React.Component {
   catchAllUnhandledErrors = (promiseRejectionEvent) => {
     console.log(promiseRejectionEvent);
   }
-
   componentDidMount() {
     if (!this.props.isAuth && localStorage.getItem('CurrentUserData')) {
       const data = JSON.parse(localStorage.getItem('CurrentUserData'));
@@ -23,7 +22,6 @@ class AppContainer extends React.Component {
     }
     window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
   }
-
   componentWillUnmount() {
     window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors);
   }
@@ -34,13 +32,12 @@ class AppContainer extends React.Component {
     }
     return <App />
   }
-}
+};
 
 const mapStateToProps = (state) => ({
   isAuth: state.auth.currentUserData.isAuth,
   initialized: state.app.initialized
-})
-
+});
 export default connect(mapStateToProps, {initializedApp, setAuthCurrentUserData, initializedSuccess})(AppContainer);
 
 

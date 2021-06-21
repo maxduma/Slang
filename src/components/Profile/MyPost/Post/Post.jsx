@@ -17,7 +17,6 @@ const Post = ({ isMyPage, addLike, removeLike, gender, deletePost, post: { postI
   const removeLikeBtn = () => {
     removeLike(postId, ownerPostUid)
   }
-
   const defaultPhoto = gender === 'male' ? userPhotoMan : userPhotoWoman;
     return (
       <div className={c.postWrapper}>
@@ -65,6 +64,5 @@ const Post = ({ isMyPage, addLike, removeLike, gender, deletePost, post: { postI
         </div>
       </div>
     )
-}
-
+};
 export default Post;

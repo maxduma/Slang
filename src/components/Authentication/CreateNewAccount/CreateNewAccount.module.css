@@ -1,9 +1,7 @@
-
 .wrapper {
   margin-top: 70px;
   text-align: center;
 }
-
 
 .formWrapper {
   display: flex;
@@ -11,8 +9,6 @@
   justify-content: center;
   align-items: center;
 }
-
-
 
 .btnCreateAccount {
   margin-top: 15px;

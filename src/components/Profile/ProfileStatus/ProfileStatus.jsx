@@ -8,23 +8,19 @@ const ProfileStatus = (props) => {
   const isMyPage = props.myUid === props.currentProfileUid;
   const [editMode, setEditMode] = useState(false);
   const [status, setStatus] = useState(props.status);
-
   useEffect(() => {
     setStatus(props.status);
   }, [props.status]);
-
   const activateEditMode = () => {
     if (isMyPage) {
       setEditMode(true);
     }
   };
-
   const onBlur = (formData) => {
     setEditMode(false);
     setStatus(formData.status);
     props.patchStatus(props.myUid, formData.status);
   };
-
   const initialData = {
     status: props.status
   }
@@ -33,17 +29,14 @@ const ProfileStatus = (props) => {
     <div className={c.profileStatusWrapper}>
       <div>
         <ProfileStatusFormRedux  initialValues={initialData} onSubmit={onBlur} status={status} editMode={editMode} activateEditMode={activateEditMode} /> 
-        {/* initialValue     do not work !      */} 
       </div>
     </div>
   );
 };
-
 export default ProfileStatus;
 
 const maxLength750 = maxLengthCreator(750);
 const ProfileStatusForm = (props) => {
-
   return (
     <div>
       <form onBlur={props.handleSubmit}>
@@ -67,5 +60,4 @@ const ProfileStatusForm = (props) => {
     </div>
     )
   };
-
 const  ProfileStatusFormRedux = reduxForm({ form: "profileStatus" })(ProfileStatusForm);

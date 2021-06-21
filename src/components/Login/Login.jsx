@@ -5,7 +5,6 @@ import c from './Login.module.css';
 
 const Login = () => {
   const [singIn, setSingIn] = useState(false);
-
   const showSingIn = () => {
     setSingIn(true);
   }
@@ -37,5 +36,4 @@ const Login = () => {
     </div>
   );
 };
-
 export default Login;

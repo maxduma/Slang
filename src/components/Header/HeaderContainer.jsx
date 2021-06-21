@@ -14,7 +14,7 @@ class HeaderContainer extends Component {
       <Header {...this.props} logout={this.logout}/>
       )
   }
-}
+};
 
 const mapStateToProps = (state) => {
   return {
@@ -25,6 +25,5 @@ const mapStateToProps = (state) => {
     gender: state.auth.currentUserData.gender,
     myUid: getCurrentUserDataUid(state)
   }
-}
-
+};
 export default connect(mapStateToProps, {setAuthCurrentUserData})(HeaderContainer);
