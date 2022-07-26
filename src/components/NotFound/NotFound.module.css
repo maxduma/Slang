@@ -1,0 +1,14 @@
+.wrapper {
+  padding: 20px;
+}
+
+.titleWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 56px;
+  color: #e3e5ec;
+}

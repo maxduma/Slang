@@ -1,0 +1,23 @@
+.form {
+  padding: 10px;
+  display: flex;
+}
+
+.btnSend {
+  margin: 0 30px;
+  background-color: #2d88ff;
+  border-radius: 10px;
+  border: 0;
+  color: #e3e5ec;
+  height: 44px;
+  width: 60px;
+  cursor: pointer;
+}
+
+.btnSend:Hover {
+  background-color: #5a97e7;
+}
+
+.inputWrapper {
+  margin-right: 20px;
+}

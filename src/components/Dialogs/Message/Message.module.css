@@ -1,0 +1,10 @@
+.message {
+  display: table;
+  padding: 8px 10px;
+  text-align: left;
+  margin: 5px;
+  background-color: #232527;
+  color: #e3e5ec;
+  text-decoration: none;
+  border-radius: 20px;
+}

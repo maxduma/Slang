@@ -1,0 +1,33 @@
+.followWrapper {
+  padding: 10px;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  width: 70px;
+}
+
+.img {
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+}
+
+.fullNameWrapper {
+  display: flex;
+  color: #e3e5ec;
+  font-size: 12px;
+}
+
+.name {
+  margin-right: 4px;
+  font-weight: 400;
+}
+
+.link {
+  color: #e3e5ec;
+  text-decoration: none;
+}
+

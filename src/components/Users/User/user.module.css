@@ -1,0 +1,59 @@
+.wrapper {
+  padding: 20px;
+  background-color: #1c1e21;
+  color: #e3e5ec;
+}
+.userPhotoContainer {
+  width: 220px;
+  display:  flex;
+}
+
+.userPhotoWrapper {
+  margin: 0 auto;
+}
+
+.userPhoto {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 5%;
+}
+
+.btnBlock {
+  display: flex;
+  justify-content: space-around;
+  width: 200px;
+}
+
+.btnFollow {
+  height: 25px;
+  width: 80%;
+  border-radius: 10px;
+  border:0;
+  background-color:rgb(67, 67, 153, .8);
+  color: #e3e5ec;
+}
+
+.btnUnfollow {
+  height: 25px;
+  width: 80%;
+  border-radius: 10px;
+  border: 0;
+  background-color: rgb(126, 63, 63, .8);
+  color: #e3e5ec;
+}
+
+.content {
+  display: flex;
+  width: 200px;
+  text-align: center;
+}
+
+.name {
+  margin: 3px auto;
+}
+
+.location {
+  margin: 3px auto;
+}
+
+

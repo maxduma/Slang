@@ -1,0 +1,19 @@
+.title {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.blockWrapper {
+  display: flex;
+}
+
+.postsContainer {
+  margin-left: 200px;
+  width: 100%;
+}
+
+.friendsBarWrapper {
+  width: 100%;
+  max-width: 300px;
+}

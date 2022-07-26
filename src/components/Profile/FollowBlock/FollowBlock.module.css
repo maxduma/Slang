@@ -1,0 +1,7 @@
+.followBlockWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #2a2d31; 
+  border-radius: 20px;
+  padding: 10px;
+}
