@@ -8,15 +8,38 @@ import { usersAPI } from '../../api/api';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
 import { getPageSize, getUsers, getTotalUsersCount, getCurrentPage, getIsFetching, getCurrentUserDataUid, getCurrentUserDataFollowing, getNotMyFollowers, getIsFollowingInProgress, getPortionSize } from '../../redux/users-selectors';
+import { UserType } from '../../types';
 
-class UsersContainer extends React.Component {
+type PropsType = {
+  myUid: number
+  currentPage: number
+  pageSize: number
+  following: number
+  pageNumber: number
+  getUsersThunkCreator: (myUid: number, currentPage: number,  pageSize: number, following: number, pageNumber: number) => void
+  toggleIsFollowingProgress: (bool: boolean, uid: number) => void
+  setFollowing: (newFollowing: number) => void
+  notMyFollowers: (newFollowers: number) => void
+  setNotMyFollowers: (newFollowers: number) => void
+  isFollowingInProgress: Array<string>
+  totalUsersCount: number
+  isFetching: boolean
+  users: Array<UserType>
+  follow: () => void
+  unfollow: () => void
+  portionSize: number
+}
+
+class UsersContainer extends React.Component<PropsType> {
 	componentDidMount() {
 		this.props.getUsersThunkCreator(this.props.myUid, this.props.currentPage, this.props.pageSize, this.props.following, 1);
 	}
-	onPageChanged = (pageNumber) => {
+
+	onPageChanged = (pageNumber: number) => {
 		this.props.getUsersThunkCreator(this.props.myUid, pageNumber, this.props.pageSize, this.props.following, pageNumber);
 	}
-	addFollow = (uid) => {
+
+	addFollow = (uid: number) => {
 		// set IsFollowing for disabled button
 		this.props.toggleIsFollowingProgress(true, uid);
 		//1. update database, my data
@@ -24,7 +47,7 @@ class UsersContainer extends React.Component {
 		.then(data => {
 			const newFollowing = data.following;
 				// Do not push the same uid
-				const a = newFollowing.some( id => {
+				const a = newFollowing.some(id => {
 					return id === uid
 				})
       // uid !== this.props.myUid  - do not follow for myself
@@ -41,7 +64,7 @@ class UsersContainer extends React.Component {
 		.then(data => {
 			const newFollowers = data.followers;
         // Do not push the same uid
-        const a = newFollowers.some( id => {
+        const a = newFollowers.some(id => {
           return id === this.props.myUid
         })
         // uid !== this.props.myUid  - do not follow for myself
@@ -59,7 +82,7 @@ class UsersContainer extends React.Component {
 		})
 	}
 
-	removeFollow = (uid) => {
+	removeFollow = (uid: number) => {
 		// set IsFollowing for disabled button
 		this.props.toggleIsFollowingProgress(true, uid);
 		//1. update database, my data
@@ -67,7 +90,7 @@ class UsersContainer extends React.Component {
 		.then(data => {
 			const newFollowing = data.following;
 				// Do not delete if do not have uid or if uid is not in array
-				let a = newFollowing.some( id => {
+				let a = newFollowing.some(id => {
 					return id === uid
 				})
 				if (a) {
@@ -86,7 +109,7 @@ class UsersContainer extends React.Component {
 		.then(data => {
 			const newFollowers = data.followers;
 				// Do not delete if do not have uid or if uid is not in array
-				let a = newFollowers.some( id => {
+				let a = newFollowers.some(id => {
 					return id === this.props.myUid
 				})
 				if (a) {
@@ -94,7 +117,7 @@ class UsersContainer extends React.Component {
 					newFollowers.splice(index, 1)
 				}
 			// set new following
-			this.props.setNotMyFollowers(newFollowers)  
+			this.props.setNotMyFollowers(newFollowers)
 		})
 		.then(data => {
 			usersAPI.patchNewFollowersUID(uid, this.props.notMyFollowers)
@@ -126,7 +149,7 @@ render() {
  }
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: any) => {
 	return {
 		users: getUsers(state),
 		pageSize: getPageSize(state),

@@ -2,46 +2,8 @@ import React from 'react';
 import c from './user.module.css';
 import userPhotoMan from '../../../assets/defaultMan.png';
 import userPhotoWoman from '../../../assets/defaultWoman.png';
-import { NavLink } from 'react-router-dom'
-
-type UserType = {
-  name: string
-  surname: string
-  email: string
-  followed: Boolean
-  followers: Array<string>
-  following: Array<string>
-  gender: string
-  iLikePostsUids: Array<string>
-  location: {
-    city: string
-    country: string
-  }
-  personalInformation: {
-    education: string
-    hobby: string
-    job: string
-  }
-  posts: {
-    data: {
-      day: string
-      hours: string
-      minutes: string
-      month: string
-      year: string
-    }
-    isLike: string
-    likesUid: Array<string>
-    ownerPostName: string
-    ownerPostSurname: string
-    ownerPostUid: string
-    ownerPostUrlPhoto: string
-    postId: string
-  }
-  status: string
-  uid: string
-  urlPhoto: string
-}
+import { NavLink } from 'react-router-dom';
+import { UserType } from '../../../types';
 
 type PropsType = {
   user: UserType
@@ -52,7 +14,7 @@ type PropsType = {
 
 const User: React.FC<PropsType> = ({user, isFollowingInProgress, followFun, unfollowFun}) => {
   const defaultPhoto = user.gender === 'male' ? userPhotoMan : userPhotoWoman;
-  
+
   return (
     <div>
       {

@@ -2,7 +2,7 @@ export type UserType = {
   name: string
   surname: string
   email: string
-  followed: Boolean
+  followed: boolean
   followers: Array<string>
   following: Array<string>
   gender: string
