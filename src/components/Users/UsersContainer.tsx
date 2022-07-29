@@ -9,6 +9,7 @@ import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
 import { getPageSize, getUsers, getTotalUsersCount, getCurrentPage, getIsFetching, getCurrentUserDataUid, getCurrentUserDataFollowing, getNotMyFollowers, getIsFollowingInProgress, getPortionSize } from '../../redux/users-selectors';
 import { UserType } from '../../types';
+import { AppStateType } from '../../redux/redux-store';
 
 type PropsType = {
   myUid: number
@@ -149,7 +150,7 @@ render() {
  }
 };
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: AppStateType) => {
 	return {
 		users: getUsers(state),
 		pageSize: getPageSize(state),

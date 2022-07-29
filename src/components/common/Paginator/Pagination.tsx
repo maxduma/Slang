@@ -18,7 +18,7 @@ const Pagination: React.FC<PropsType> = ({totalItemsCount, pageSize, currentPage
     }
 
   const portionCount = Math.ceil(pagesCount / portionSize);
-  const [portionNumber, setPortionNumber] = useState(1);
+  const [portionNumber, setPortionNumber] = useState<number>(1);
   const leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
   const rightPortionPageNumber = portionNumber * portionSize;
 

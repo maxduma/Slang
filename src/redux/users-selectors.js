@@ -1,5 +1,6 @@
 import {createSelector} from "reselect";
 
+
 export const getUsers = (state) => {
   return state.usersPage.users
 }
@@ -9,7 +10,7 @@ export const getUsers = (state) => {
 // })
 
 export const getPageSize = (state) => {
-  return state.usersPage.pageSize
+  return state.usersPage.users
 }
 export const getTotalUsersCount = (state) => {
   return state.usersPage.totalUsersCount
