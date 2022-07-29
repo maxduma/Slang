@@ -10,7 +10,7 @@ import { reducer as formReducer } from 'redux-form';
 import appReducer from './app-reducer';
 import homeReducer from './home-reducer';
 
-const reducers = combineReducers({
+const rootReducers = combineReducers({
     profilePage: profileReducer,
     messagesPage: dialogsReducer,
     sidebar: sidebarReducer,
@@ -21,10 +21,15 @@ const reducers = combineReducers({
     app: appReducer
 });
 
-// Redux Dev Tools
-const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
-const store = createStore(reducers, composeEnhancers(applyMiddleware(thunkMiddleware)) );
+type RootReducersType = typeof rootReducers
+export type AppStateType = ReturnType<RootReducersType>
 
+// Redux Dev Tools
+// @ts-ignore
+const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+const store = createStore(rootReducers, composeEnhancers(applyMiddleware(thunkMiddleware)) );
+
+// @ts-ignore
 window.store = store;  // delete later
 // const store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
