@@ -1,4 +1,4 @@
-import * as axios from 'axios';
+import axios from 'axios';
 import firebase from 'firebase';
 
 // instance
@@ -8,7 +8,7 @@ const instance = axios.create({
 
 // get users
 export const usersAPI = {
- putNewUser(uid, name, surname, email, gender, city, country) {
+ putNewUser(uid: string, name: string, surname: string, email: string, gender: string, city: string, country: string) {
 	return instance.put( `${uid}.json`, {
       name: name,
       surname: surname,
@@ -36,29 +36,29 @@ export const usersAPI = {
     .then(response => {
     return response.data});
 	},
-	getUser(userId) {
+	getUser(userId: string) {
     return instance.get( `${userId}/.json`)
     .then(response => {
     return response.data});
 	},
-	patchNewFollowingUID(uid, newFollowing) {
+	patchNewFollowingUID(uid: string, newFollowing: string) {
     return instance.patch( `${uid}/.json`,
     {
       following:  newFollowing
     })
 	},
-	patchNewFollowersUID(uid, newFollowers) {
+	patchNewFollowersUID(uid: string, newFollowers: string) {
 		return instance.patch( `${uid}/.json`,
 		{
 		 followers:  newFollowers
 		})
 	},
-  getILikePostsUids(uid) {
+  getILikePostsUids(uid: string) {
 		return instance.get( `${uid}/iLikePostsUids/.json`)
     .then(response => {
       return response.data});
 	},
-  patchILikePostsUids(uid, newILikePostsUids) {
+  patchILikePostsUids(uid: string, newILikePostsUids: string) {
 		return instance.patch( `${uid}/.json`,
 		{
 			iLikePostsUids: newILikePostsUids
@@ -67,13 +67,13 @@ export const usersAPI = {
 };
 
 export const authAPI = {
-	createNewAccount(email, password)  {
+	createNewAccount(email: string, password: string)  {
 		return firebase.auth().createUserWithEmailAndPassword(email, password)
 			.then(res => {
 						return res.user
 			})
 	},
-	signIn(email, password)  {
+	signIn(email: string, password: string)  {
 		return 	firebase.auth().signInWithEmailAndPassword(email, password)
 			.then(res => {
 			return res
@@ -88,10 +88,10 @@ export const authAPI = {
 };
 
 export const profileAPI = {
-  getStatus(userId) {
+  getStatus(userId: string) {
     return instance.get(`${userId}/status/.json`)
   },
-  patchStatus(myUid, newStatus) {
+  patchStatus(myUid: string, newStatus: string) {
     return instance.patch(`${myUid}/.json`, {
       status: newStatus
     })
@@ -106,12 +106,12 @@ export const profileAPI = {
   //     }
   //   });
   // },
-  changeUrlPhoto(urlPhoto, myUid) {
+  changeUrlPhoto(urlPhoto: string, myUid: string) {
       return instance.patch(`${myUid}/.json`, {
         urlPhoto: urlPhoto
       })
   },
-  changeProfileData(formData, myUid) {
+  changeProfileData(formData: any, myUid: string) {
       return instance.patch(`${myUid}/.json`, {
         name: formData.name,
         surname: formData.surname,
@@ -129,17 +129,17 @@ export const profileAPI = {
 };
 
 export const myPostsAPI = {
-  getPosts(userId) {
+  getPosts(userId: string) {
     return instance.get(`${userId}/posts/.json`)
     .then(response => {
       return response.data});
   },
-  getPost(userId, postId) {
+  getPost(userId: string, postId: string) {
     return instance.get(`${userId}/posts/${postId}.json`)
     .then(response => {
       return response.data});
   },
-  patchPost(postData, myUid) {
+  patchPost(postData: any, myUid: string) {
     return instance.put(`${myUid}/posts/${postData.postId}/.json`, {
       text: postData.text,
       isLike: postData.isLike,
@@ -153,15 +153,15 @@ export const myPostsAPI = {
       ownerPostSurname: postData.ownerPostSurname,
     })
   },
-  deletePost(postId, myUid) {
+  deletePost(postId: string, myUid: string) {
     return instance.delete(`${myUid}/posts/${postId}/.json`)
   },
-  getLikeCountUid(currentProfileUid, postId) {
+  getLikeCountUid(currentProfileUid: string, postId: string) {
     return instance.get( `${currentProfileUid}/posts/${postId}/likesUid/.json`)
     .then(response => {
       return response.data});
   },
-  addNewLikeCountUid(currentProfileUid, postId, newLikesUid) {
+  addNewLikeCountUid(currentProfileUid: string, postId: string, newLikesUid: string) {
 		return instance.patch( `${currentProfileUid}/posts/${postId}/.json`,
 		{
 			likesUid:  newLikesUid
