@@ -48,7 +48,7 @@ class UsersContainer extends React.Component<PropsType> {
 		.then(data => {
 			const newFollowing = data.following;
 				// Do not push the same uid
-				const a = newFollowing.some(id => {
+				const a = newFollowing.some((id:any) => {
 					return id === uid
 				})
       // uid !== this.props.myUid  - do not follow for myself
@@ -65,7 +65,7 @@ class UsersContainer extends React.Component<PropsType> {
 		.then(data => {
 			const newFollowers = data.followers;
         // Do not push the same uid
-        const a = newFollowers.some(id => {
+        const a = newFollowers.some((id: any) => {
           return id === this.props.myUid
         })
         // uid !== this.props.myUid  - do not follow for myself
@@ -91,7 +91,7 @@ class UsersContainer extends React.Component<PropsType> {
 		.then(data => {
 			const newFollowing = data.following;
 				// Do not delete if do not have uid or if uid is not in array
-				let a = newFollowing.some(id => {
+				let a = newFollowing.some((id: any) => {
 					return id === uid
 				})
 				if (a) {
@@ -110,7 +110,7 @@ class UsersContainer extends React.Component<PropsType> {
 		.then(data => {
 			const newFollowers = data.followers;
 				// Do not delete if do not have uid or if uid is not in array
-				let a = newFollowers.some(id => {
+				let a = newFollowers.some((id: any) => {
 					return id === this.props.myUid
 				})
 				if (a) {
@@ -132,19 +132,12 @@ class UsersContainer extends React.Component<PropsType> {
 render() {
 	return <>
 	{this.props.isFetching ? <Spinner /> : null}
-		<Users 
-		  isFollowingInProgress={this.props.isFollowingInProgress}
+		<Users
+      follow={this.props.follow}
+      unfollow={this.props.unfollow}
 			addFollow={this.addFollow}
 			removeFollow={this.removeFollow}
-			totalUsersCount={this.props.totalUsersCount} 
-			pageSize={this.props.pageSize} 
-			currentPage={this.props.currentPage} 
 			onPageChanged={this.onPageChanged}
-			users={this.props.users}
-			follow={this.props.follow}
-			unfollow={this.props.unfollow}
-			isFetching={this.props.isFetching}
-      portionSize={this.props.portionSize}
 			/>
 	</>
  }

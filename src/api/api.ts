@@ -36,18 +36,18 @@ export const usersAPI = {
     .then(response => {
     return response.data});
 	},
-	getUser(userId: string) {
+	getUser(userId: number) {
     return instance.get( `${userId}/.json`)
     .then(response => {
     return response.data});
 	},
-	patchNewFollowingUID(uid: string, newFollowing: string) {
+	patchNewFollowingUID(uid: number, newFollowing: number) {
     return instance.patch( `${uid}/.json`,
     {
       following:  newFollowing
     })
 	},
-	patchNewFollowersUID(uid: string, newFollowers: string) {
+	patchNewFollowersUID(uid: number, newFollowers: (newFollowers: number) => void) {
 		return instance.patch( `${uid}/.json`,
 		{
 		 followers:  newFollowers
@@ -80,6 +80,7 @@ export const authAPI = {
 	})
 	},
 	logout()  {
+    //@ts-ignore
 		return 	firebase.auth().signInWithEmailAndPassword()
 			.then(res => {
 			return res.user

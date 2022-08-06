@@ -2,27 +2,39 @@ import React from 'react';
 import Pagination from '../common/Paginator/Pagination';
 import User from './User/User';
 import { UserType } from '../../types';
+import { getPageSize, getUsers, getTotalUsersCount, getCurrentPage, getIsFollowingInProgress, getPortionSize } from '../../redux/users-selectors';
+
+import { useDispatch, useSelector } from 'react-redux';
 
 type PropsType = {
-  users: Array<UserType>
-  totalUsersCount: number
-  pageSize: number
-  currentPage: number
+  // users: Array<UserType>
+  // totalUsersCount: number
+  // pageSize: number
+  // currentPage: number
+  // portionSize: number
+  // isFollowingInProgress: Array<string>
+
   follow: (uid: string) => void
   unfollow: (uid: string) => void
   addFollow: (uid: number) => void
   removeFollow:  (uid: number) => void
-  isFollowingInProgress: Array<string>
   onPageChanged: (pageNumber: number) => void
-  portionSize: number
 }
 
-const Users: React.FC<PropsType> = ({users, totalUsersCount, pageSize, currentPage, follow, addFollow, unfollow, removeFollow, isFollowingInProgress, onPageChanged, portionSize}) => {
-  const followFun = (uid: string) => {
+const Users: React.FC<PropsType> = ({ follow, unfollow, addFollow, removeFollow, onPageChanged}) => {
+
+  const users = useSelector(getUsers);
+  const totalUsersCount = useSelector(getTotalUsersCount);
+  const pageSize = useSelector(getPageSize);
+  const currentPage = useSelector(getCurrentPage);
+  const isFollowingInProgress = useSelector(getIsFollowingInProgress);
+  const portionSize = useSelector(getPortionSize);
+
+  const followFun = (uid: any ) => {
     follow(uid)
     addFollow(uid)
   }
-  const unfollowFun = (uid: string) => {
+  const unfollowFun = (uid: any) => {
     unfollow(uid)
     removeFollow(uid)
   }
@@ -31,9 +43,10 @@ const Users: React.FC<PropsType> = ({users, totalUsersCount, pageSize, currentPa
     <div>
       <Pagination currentPage={currentPage} totalItemsCount={totalUsersCount} pageSize={pageSize} onPageChanged={onPageChanged} portionSize={portionSize} />
       {
-        users.map(u =>
+        //@ts-ignore
+        users.map((u) =>
           <User
-            user={u} 
+            user={u}
             isFollowingInProgress={isFollowingInProgress} 
             followFun={followFun}
             unfollowFun={unfollowFun}
